@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "605655454660",
+    "firebase_url": "https://studentmanagementapp-69d22-default-rtdb.firebaseio.com",
+    "project_id": "studentmanagementapp-69d22",
+    "storage_bucket": "studentmanagementapp-69d22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605655454660:android:b289cb85b1c2c8c66e8a91",
+        "android_client_info": {
+          "package_name": "com.techtown.studentmanagementapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605655454660-8r8hfvu77cbjqsdgkvf4sklnku68o3e3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.techtown.studentmanagementapp",
+            "certificate_hash": "ed96bbee38337a428ba9f62fca9df6ba53b65693"
+          }
+        },
+        {
+          "client_id": "605655454660-udg801rhmcl8qgoe4sl2lc7ap7f46uh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlb3GA92rbW_-8nVjtqOsq5tJosyaWEVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605655454660-udg801rhmcl8qgoe4sl2lc7ap7f46uh1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
