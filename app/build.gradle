@@ -44,7 +44,4 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-database:20.0.1'
-
-    // JSON
-    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 }
