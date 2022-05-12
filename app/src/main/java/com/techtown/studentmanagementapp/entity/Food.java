@@ -1,9 +1,13 @@
 package com.techtown.studentmanagementapp.entity;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Food {
+    static public String TAG = "Food";
+
     // 기장밥<br/>돈육김치국5.6.9.10.13.18.<br/>도라지진미채무침p85.6.13.17.18.<br/>크리미양파닭p1.2.5.6.13.15.<br/>총각김치9.13.
     static public List<String> getFoods(Object object) {
         String food = object.toString();
