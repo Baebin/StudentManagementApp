@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class StartActivity extends AppCompatActivity {
+    static public String TAG = "StartActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

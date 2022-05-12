@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class TestInitActivity extends AppCompatActivity {
+    static public String TAG = "TestInitActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
