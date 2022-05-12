@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class LaunchActivity extends AppCompatActivity {
+    static public String TAG = "LaunchActivity";
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @Override
