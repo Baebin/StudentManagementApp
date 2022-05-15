@@ -90,14 +90,14 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_margin="50dp"
             android:text="Next"
             android:textColor="@color/black"
-            android:background="#"
+            android:background="@color/white"
             android:textSize="30dp"
             android:textStyle="bold|italic" />
     </LinearLayout>
