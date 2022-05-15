@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class TestInitActivity extends AppCompatActivity {
     static public String TAG = "TestInitActivity";
 
-    private Button button_launch;
+    private Button button_lunch;
     private Button button_start;
     private Button button_main;
     private Button button_login;
@@ -20,18 +21,20 @@ public class TestInitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_init);
 
-        button_launch = findViewById(R.id.button_launch);
-        button_launch.setOnClickListener(new View.OnClickListener() {
+        Log.d(TAG, "onCreate()");
+
+        button_lunch = findViewById(R.id.button_lunch);
+        button_lunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendIntent("Launch");
+                sendIntent("Lunch");
             }
         });
         button_start = findViewById(R.id.button_start);
         button_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendIntent("start");
+                sendIntent("Start");
             }
         });
         button_main = findViewById(R.id.button_main);
@@ -42,18 +45,20 @@ public class TestInitActivity extends AppCompatActivity {
             }
         });
         button_login = findViewById(R.id.button_login);
-        button_main.setOnClickListener(new View.OnClickListener() {
+        button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendIntent("login");
+                sendIntent("Login");
             }
         });
     }
 
     private void sendIntent(String activity) {
-        if (activity.equalsIgnoreCase("Launch")) {
-            Intent intent_launch = new Intent(getApplicationContext(), LaunchActivity.class);
-            startActivity(intent_launch);
+        Log.d(TAG, "sendIntent(): " + activity);
+
+        if (activity.equalsIgnoreCase("Lunch")) {
+            Intent intent_lunch = new Intent(getApplicationContext(), LunchActivity.class);
+            startActivity(intent_lunch);
         }
 
         if (activity.equalsIgnoreCase("Start")) {
@@ -66,7 +71,7 @@ public class TestInitActivity extends AppCompatActivity {
             startActivity(intent_main);
         }
 
-        if (activity.equalsIgnoreCase("login")) {
+        if (activity.equalsIgnoreCase("Login")) {
             Intent intent_login = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent_login);
         }

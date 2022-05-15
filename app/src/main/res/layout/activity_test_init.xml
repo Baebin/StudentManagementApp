@@ -18,12 +18,12 @@
             android:id="@+id/textView_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LaunchActivity"
+            android:text="LunchActivity"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
         <Button
-            android:id="@+id/button_launch"
+            android:id="@+id/button_lunch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Button" />
