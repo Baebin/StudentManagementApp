@@ -11,6 +11,7 @@ import android.widget.Button;
 public class TestInitActivity extends AppCompatActivity {
     static public String TAG = "TestInitActivity";
 
+    // Button
     private Button button_lunch;
     private Button button_start;
     private Button button_main;
