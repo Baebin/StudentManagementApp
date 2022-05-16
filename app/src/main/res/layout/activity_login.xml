@@ -37,12 +37,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
-            android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
+            android:maxLength="10"
             android:text=" Grade : "
             android:textSize="23sp"
-            android:maxLength="10"
             android:textStyle="bold|italic" />
 
         <EditText
@@ -53,9 +52,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
+            android:maxLength="10"
             android:text=" Class : "
             android:textSize="23sp"
-            android:maxLength="10"
             android:textStyle="bold|italic" />
 
 
@@ -67,9 +66,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
+            android:maxLength="12"
             android:text=" Number : "
             android:textSize="23sp"
-            android:maxLength="12"
             android:textStyle="bold|italic" />
 
 
@@ -81,9 +80,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
+            android:maxLength="12"
             android:text=" Name : "
             android:textSize="23sp"
-            android:maxLength="12"
             android:textStyle="bold|italic" />
 
 
