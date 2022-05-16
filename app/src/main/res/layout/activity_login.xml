@@ -97,7 +97,7 @@
             android:layout_margin="50dp"
             android:text="Next"
             android:textColor="@color/black"
-            android:background="@color/white"
+            android:background='#'
             android:textSize="30dp"
             android:textStyle="bold|italic" />
     </LinearLayout>
