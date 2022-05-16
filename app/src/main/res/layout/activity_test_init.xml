@@ -18,7 +18,7 @@
             android:id="@+id/textView_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LunchActivity"
+            android:text="Menu"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -39,7 +39,7 @@
             android:id="@+id/textView_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LaunchActivity"
+            android:text="Mainscreen"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -81,7 +81,7 @@
             android:id="@+id/textView_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LaunchActivity"
+            android:text="Login screen"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
