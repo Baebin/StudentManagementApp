@@ -19,8 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Login"
-            android:textSize="90sp"
-            android:layout_margin="30dp"
+            android:textSize="95sp"
+            android:layout_margin="19dp"
+            android:maxLength="5"
         android:textStyle="bold|italic" />
     </LinearLayout>
 
@@ -39,8 +40,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text=" Grade"
+            android:text=" Grade :"
             android:textSize="23sp"
+            android:maxLength="9"
             android:textStyle="bold|italic" />
 
         <EditText
@@ -51,8 +53,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text=" Class"
+            android:text=" Class :"
             android:textSize="23sp"
+            android:maxLength="9"
             android:textStyle="bold|italic" />
 
 
@@ -64,8 +67,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text=" Number"
+            android:text=" Number :"
             android:textSize="23sp"
+            android:maxLength="11"
             android:textStyle="bold|italic" />
 
 
@@ -77,8 +81,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text=" Name"
+            android:text=" Name :"
             android:textSize="23sp"
+            android:maxLength="11"
             android:textStyle="bold|italic" />
 
 
