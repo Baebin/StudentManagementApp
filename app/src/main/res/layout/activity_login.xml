@@ -30,11 +30,12 @@
         android:layout_weight="2"
         android:orientation="vertical">
 
+
         <EditText
             android:id="@+id/editTextTextPersonName6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="3dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
@@ -42,12 +43,11 @@
             android:textSize="23sp"
             android:textStyle="bold|italic" />
 
-
         <EditText
             android:id="@+id/editTextTextPersonName8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="3dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
@@ -60,7 +60,7 @@
             android:id="@+id/editTextTextPersonName7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="3dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
@@ -73,7 +73,7 @@
             android:id="@+id/editTextTextPersonName9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="3dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
@@ -97,7 +97,7 @@
             android:layout_margin="50dp"
             android:text="Next"
             android:textColor="@color/black"
-            android:background='#'
+            android:background='#0000'
             android:textSize="30dp"
             android:textStyle="bold|italic" />
     </LinearLayout>
