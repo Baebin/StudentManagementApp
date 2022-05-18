@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#C1C1BA"
+    android:background="#FFFFFF"
     tools:context=".StartActivity">
 
     <LinearLayout
@@ -13,13 +13,15 @@
         android:layout_height="0dp"
         android:layout_weight="0.6" >
 
+
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="134dp"
+            android:layout_weight="1.0"
+            android:text="     K-Lunch"
             android:textSize='70dp'
-            android:text="Happy Lunch" />
+            android:textStyle="italic" />
     </LinearLayout>
 
     <ImageView
@@ -28,7 +30,10 @@
         android:layout_height="0dp"
         android:layout_weight="1.3"
         android:orientation="vertical"
-        app:srcCompat="@drawable/rogo" />
+        app:srcCompat="@drawable/rogo"
+        />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +46,7 @@
             android:layout_width="57dp"
             android:layout_height="match_parent"
             android:layout_weight="0.1"
-            android:background="@color/white"
+            android:background="#FFFFFF"
             android:text="guest login"
             android:textColor="#000000"
             android:textSize='20dp'
@@ -52,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.1"
-            android:background="@color/white"
+            android:background="#FFFFFF"
             android:text="login"
             android:textColor="#000000"
             android:textSize='20dp'
