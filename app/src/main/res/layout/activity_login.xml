@@ -2,11 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     android:orientation="vertical"
-    tools:context=".LoginActivity"
-    android:layout_margin="10dp">
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,11 +19,11 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Login"
-            android:textSize="98sp"
             android:layout_margin="25dp"
             android:maxLength="5"
-        android:textStyle="bold|italic" />
+            android:text="Login"
+            android:textSize="98sp"
+            android:textStyle="bold|italic" />
     </LinearLayout>
 
     <LinearLayout
@@ -173,6 +174,7 @@
             android:textSize="23sp"
             android:textStyle="bold|italic" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -194,6 +196,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="0.5"></LinearLayout>
+        android:layout_weight="0.5"
+        android:orientation="vertical"></LinearLayout>
 </LinearLayout>
