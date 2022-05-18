@@ -3,19 +3,15 @@ package com.techtown.studentmanagementapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+    static public String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Inchan Test
-        // Yewon Test
-        // Baebin Test
-        // Juheun Test
-        // Jiwoo Test
-
-
     }
 }
