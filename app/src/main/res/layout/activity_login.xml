@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_weight="2.5"
         android:orientation="vertical">
 
         <TextView
@@ -19,8 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Login"
-            android:textSize="95sp"
-            android:layout_margin="19dp"
+            android:textSize="98sp"
+            android:layout_margin="25dp"
             android:maxLength="5"
         android:textStyle="bold|italic" />
     </LinearLayout>
@@ -28,7 +28,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -42,8 +42,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:text=" Grade :    "
-            android:textSize="23sp"
+            android:text="      Grade :    "
+            android:textColor="#000000"
+            android:textSize="25sp"
             android:textStyle="bold|italic" />
 
         <EditText
@@ -53,59 +54,129 @@
             android:layout_gravity="center"
             android:layout_margin="3dp"
             android:ems="10"
+            android:hint="학년을 입력해주세요."
             android:inputType="textPersonName"
             android:maxLength="10"
             android:text=""
-            android:hint="학번을 입력해주세요."
             android:textSize="23sp"
             android:textStyle="bold|italic" />
     </LinearLayout>
-
-    <EditText
-        android:id="@+id/edtv_class"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:maxLength="10"
-        android:text=" Class : "
-        android:textSize="23sp"
-        android:textStyle="bold|italic" />
-
-
-    <EditText
-        android:id="@+id/edtv_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:maxLength="12"
-        android:text=" Number : "
-        android:textSize="23sp"
-        android:textStyle="bold|italic" />
-
-
-    <EditText
-        android:id="@+id/edtv_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:maxLength="12"
-        android:text=" Name : "
-        android:textSize="23sp"
-        android:textStyle="bold|italic" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:text="      Class :     "
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+
+        <EditText
+            android:id="@+id/edtv_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:ems="10"
+            android:hint="반을 입력해주세요."
+            android:inputType="textPersonName"
+            android:maxLength="10"
+            android:text=""
+            android:textSize="23sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:text=" Number :     "
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+
+        <EditText
+            android:id="@+id/edtv_Number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:ems="10"
+            android:hint="번호을 입력해주세요."
+            android:inputType="textPersonName"
+            android:maxLength="10"
+            android:text=""
+            android:textSize="23sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:text="     Name :     "
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+
+        <EditText
+            android:id="@+id/edtv_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:ems="10"
+            android:hint="이름을 입력해주세요."
+            android:inputType="textPersonName"
+            android:maxLength="10"
+            android:text=""
+            android:textSize="23sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatButton
@@ -113,9 +184,9 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_margin="50dp"
+            android:background='#0000'
             android:text="Next"
             android:textColor="@color/black"
-            android:background='#0000'
             android:textSize="30dp"
             android:textStyle="bold|italic" />
     </LinearLayout>
@@ -124,5 +195,5 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_weight="1"></LinearLayout>
+        android:layout_weight="0.5"></LinearLayout>
 </LinearLayout>
