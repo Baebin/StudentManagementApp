@@ -29,8 +29,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_weight="0.9"
+        android:orientation="horizontal"
+        android:paddingRight="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:text="      Grade :    "
+            android:text="      Grade       "
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
@@ -54,20 +55,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:ems="10"
+            android:ems="8"
             android:hint="학년을 입력해주세요."
             android:inputType="textPersonName"
             android:maxLength="1"
             android:text=""
-            android:textSize="23sp"
+            android:textSize="20sp"
             android:textStyle="bold|italic" />
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_weight="0.9"
+        android:paddingRight="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:text="      Class :     "
+            android:text="     Class       "
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
@@ -91,21 +93,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:ems="10"
-            android:hint="반을 입력해주세요."
+            android:ems="8"
+            android:hint=" 반을 입력해주세요."
             android:inputType="textPersonName"
             android:maxLength="1"
             android:text=""
-            android:textSize="23sp"
+            android:textSize="20sp"
             android:textStyle="bold|italic" />
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_weight="0.9"
+        android:orientation="horizontal"
+        android:paddingRight="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -118,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:text=" Number :     "
+            android:text="    Number     "
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
@@ -129,20 +131,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:ems="10"
+            android:ems="8"
             android:hint="번호을 입력해주세요."
             android:inputType="textPersonName"
             android:maxLength="2"
             android:text=""
-            android:textSize="23sp"
+            android:textSize="20sp"
             android:textStyle="bold|italic" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_weight="0.9"
+        android:orientation="horizontal"
+        android:paddingRight="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -155,7 +158,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:text="     Name :     "
+            android:text="     Name      "
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
@@ -166,12 +169,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:ems="10"
+            android:ems="8"
             android:hint="이름을 입력해주세요."
             android:inputType="textPersonName"
             android:maxLength="4"
             android:text=""
-            android:textSize="23sp"
+            android:textSize="20sp"
             android:textStyle="bold|italic" />
     </LinearLayout>
 
