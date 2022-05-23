@@ -58,6 +58,11 @@ public class LoginActivity extends AppCompatActivity {
         String number_ = edtv_number.getText().toString();
         String name_ = edtv_name.getText().toString();
 
+        Log.d(TAG, "grade: " + grade_
+                        + "\nclass: " + class_
+                        + "\nnumber: " + number_
+                        + "\nname: " + name_);
+
         if (grade_.equals("")) { showSnackbar("학년" + output); return; }
         if (!grade_.equals("1") && !grade_.equals("2") && !grade_.equals("3")) { showSnackbar("학년" + error); return; }
         //if (!grade_.chars().allMatch(Character::isDigit)) { showSnackbar("학년" + error); }
@@ -70,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             }
             stack++;
         }
+        Log.d(TAG, "Stack: " + stack);
         if (stack >= 10) { showSnackbar("반" + error); return; }
         if (!class_.chars().allMatch(Character::isDigit)
             || class_.equals("0") ) { showSnackbar("반" + error); }
