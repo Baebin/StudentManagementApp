@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="5dp"
+        android:layout_margin="6dp"
         android:ems="10"
         android:text='  " Everything is possible."'
         android:textSize="27sp"
