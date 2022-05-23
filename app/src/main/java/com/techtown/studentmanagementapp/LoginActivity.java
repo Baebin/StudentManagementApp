@@ -40,9 +40,10 @@ public class LoginActivity extends AppCompatActivity {
 
         button_next = findViewById(R.id.button_next);
         button_next.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View view) {
-                showSnackbar("Test");
+                checkLogin();
             }
         });
     }
@@ -57,27 +58,39 @@ public class LoginActivity extends AppCompatActivity {
         String number_ = edtv_number.getText().toString();
         String name_ = edtv_name.getText().toString();
 
+        Log.d(TAG, "grade: " + grade_
+                        + "\nclass: " + class_
+                        + "\nnumber: " + number_
+                        + "\nname: " + name_);
+
         if (grade_.equals("")) { showSnackbar("학년" + output); return; }
-        if (class_.equals("")) { showSnackbar("반" + output); return; }
-        if (number_.equals("")) { showSnackbar("번호" + output); return; }
-        if (name_.equals("")) { showSnackbar("이름" + output); return; }
-
         if (!grade_.equals("1") && !grade_.equals("2") && !grade_.equals("3")) { showSnackbar("학년" + error); return; }
-
-        int stack;
-        for (stack = 1; stack <= 10; stack++) {
-            if (grade_.equals(stack + "")) {
-                break;
-            }
-            stack++;
-        }
-        if (stack > 10) { showSnackbar("반" + error); return; }
         if (!grade_.chars().allMatch(Character::isDigit)) { showSnackbar("학년" + error); }
-        if (!class_.chars().allMatch(Character::isDigit)
-            || class_.equals("0") ) { showSnackbar("반" + error); }
-        if (!number_.chars().allMatch(Character::isDigit)
-            || number_.length() > 2 || class_.equals("0")) { showSnackbar("번호" + error); }
-        if (name_.length() < 2) { showSnackbar("이름"); return; }
+
+        if (class_.equals("")) { showSnackbar("반" + output); return; }
+        if (!class_.chars().allMatch(Character::isDigit)) { showSnackbar("반" + error); }
+        int class_i;
+        try {
+            class_i = Integer.parseInt(class_);
+        } catch (NumberFormatException e) {
+            showSnackbar("반" + error);
+            return;
+        }
+        if (class_i <= 0 || class_i >= 10) { showSnackbar("반" + error); return; }
+
+        if (number_.equals("")) { showSnackbar("번호" + output); return; }
+        if (!number_.chars().allMatch(Character::isDigit)) { showSnackbar("번호" + error); }
+        int number_i;
+        try {
+            number_i = Integer.parseInt(number_);
+        } catch (NumberFormatException e) {
+            showSnackbar("반" + error);
+            return;
+        }
+        if (number_i <= 0) { showSnackbar("번호: " + error); return; }
+
+        if (name_.equals("")) { showSnackbar("이름" + output); return; }
+        if (name_.length() < 2) { showSnackbar("이름" + error); return; }
 
         Student student = new Student(grade_, class_, number_, name_);
         showSnackbar(student.getName_() + "님, 환영합니다.");

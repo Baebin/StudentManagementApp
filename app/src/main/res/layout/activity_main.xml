@@ -24,10 +24,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="5dp"
+        android:layout_margin="6dp"
         android:ems="10"
-        android:hint=' " Everything is possible."'
-        android:text=""
+        android:text='  " Everything is possible."'
         android:textSize="27sp"
         android:textStyle="bold|italic" />
 
@@ -36,27 +35,71 @@
 
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:orientation="vertical">
 
 
     </LinearLayout>
+
+
 
 
     <LinearLayout
-
-
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.3"
         android:orientation="vertical">
 
-
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/eateat" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:orientation="horizontal">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:background="#FFFFFF"
+            android:fontFamily="@font/hhh"
+            android:text="1학년"
+            android:textColor="#000000"
+            android:textSize='31dp'
+            android:textStyle="italic" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:background="#FFFFFF"
+            android:fontFamily="@font/hhh"
+            android:text="2학년"
+            android:textColor="#000000"
+            android:textSize='31dp'
+            android:textStyle="italic" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:background="#FFFFFF"
+            android:fontFamily="@font/hhh"
+            android:text="3학년"
+            android:textColor="#000000"
+            android:textSize='31dp'
+            android:textStyle="italic" />
+
+    </LinearLayout>
 
 
 </LinearLayout>
