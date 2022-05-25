@@ -2,6 +2,7 @@ package com.techtown.studentmanagementapp;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -41,6 +42,13 @@ public class LunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch);
 
+        // Toolbar - Back Button
+        Toolbar mToolbar = findViewById(R.id.toolbar_back);
+        setSupportActionBar(mToolbar);
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        applySetting();
+
         tv_day = findViewById(R.id.tv_day);
         tv_test = findViewById(R.id.tv_test);
 
@@ -77,6 +85,10 @@ public class LunchActivity extends AppCompatActivity {
         }
 
         manager = new LunchParsingManager(time);
+    }
+
+    private void applySetting() {
+        getSupportActionBar().setTitle("급식표");
     }
 
     private void pFood(List<String> food) {
