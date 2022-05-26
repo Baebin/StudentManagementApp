@@ -48,6 +48,9 @@ dependencies {
 
     // JSON Simple
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+
+    // Circle ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
 
 // Hamcrest 우선 순위 부여
