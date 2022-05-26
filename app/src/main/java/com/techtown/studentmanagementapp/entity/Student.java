@@ -1,6 +1,8 @@
 package com.techtown.studentmanagementapp.entity;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
     private int grade_ = 0;
     private int class_ = 0;
     private int number_ = 0;

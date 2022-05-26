@@ -25,6 +25,7 @@
             android:exported="false" />
         <activity
             android:name=".LunchActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
