@@ -22,7 +22,14 @@
             android:text="School lunch call"
             android:textSize="45sp"
             android:textStyle="bold|italic" />
+
+
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8px"
+        android:background="#000000" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -40,6 +47,8 @@
                 android:orientation="horizontal"
                 android:paddingLeft="50dp"
                 android:paddingRight="50dp">
+
+
 
 
                 <TextView
@@ -71,6 +80,11 @@
 
 
     </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8px"
+        android:background="#000000" />
 
     <LinearLayout
         android:layout_width="match_parent"
