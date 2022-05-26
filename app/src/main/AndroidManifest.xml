@@ -13,7 +13,7 @@
         android:networkSecurityConfig="@xml/network_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.StudentManagementApp">
+        android:theme="@android:style/Theme.NoTitleBar">
         <activity
             android:name=".callActivity"
             android:exported="false" />
@@ -25,6 +25,7 @@
             android:exported="false" />
         <activity
             android:name=".LunchActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
