@@ -19,10 +19,17 @@
             android:layout_margin="40dp"
 
             android:paddingRight="55dp"
-            android:text=" school lunch call "
+            android:text="School lunch call"
             android:textSize="45sp"
             android:textStyle="bold|italic" />
+
+
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8px"
+        android:background="#000000" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -41,21 +48,21 @@
                 android:paddingLeft="50dp"
                 android:paddingRight="50dp">
 
+
+
+
                 <TextView
                     android:id="@+id/textView4"
-                    android:layout_width="0dp"
+                    android:layout_width="94dp"
                     android:layout_height="55dp"
                     android:layout_margin="10dp"
-                    android:layout_weight="0.2"
 
-
-                    android:paddingEnd="10dp"
-                    android:text=" 1-1"
+                    android:layout_weight="0.3"
+                    android:fontFamily="@font/hhh"
+                    android:text=" 1학년 1반"
                     android:textColor="#000000"
-                    android:textSize="35sp"
-                    android:textStyle="bold|italic"
-                    />
-
+                    android:textSize="37sp"
+                    android:textStyle="bold|italic" />
 
                 <ImageButton
                     android:id="@+id/imageButton"
@@ -73,6 +80,11 @@
 
 
     </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8px"
+        android:background="#000000" />
 
     <LinearLayout
         android:layout_width="match_parent"

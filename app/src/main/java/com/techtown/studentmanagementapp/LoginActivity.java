@@ -3,6 +3,7 @@ package com.techtown.studentmanagementapp;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.techtown.studentmanagementapp.entity.Student;
+import com.techtown.studentmanagementapp.util.SharedPreferenceUtil;
 
 public class LoginActivity extends AppCompatActivity {
     static public String TAG = "LoginActivity";
@@ -31,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Log.d(TAG, "onCreate()");
+
         view = findViewById(R.id.view);
 
         edtv_grade = findViewById(R.id.edtv_grade);
@@ -46,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
                 checkLogin();
             }
         });
+
+        SharedPreferenceUtil.init(this);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -93,7 +99,17 @@ public class LoginActivity extends AppCompatActivity {
         if (name_.length() < 2) { showSnackbar("이름" + error); return; }
 
         Student student = new Student(grade_, class_, number_, name_);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            SharedPreferenceUtil.putStudent(student);
+        }
         showSnackbar(student.getName_() + "님, 환영합니다.");
+
+        sendIntent();
+    }
+
+    public void sendIntent() {
+        Intent intent_main = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent_main);
     }
 
     public void showToast(String data) {
