@@ -1,5 +1,6 @@
 package com.techtown.studentmanagementapp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -7,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -42,12 +44,8 @@ public class LunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch);
 
-        // Toolbar - Back Button
-        Toolbar mToolbar = findViewById(R.id.toolbar_back);
-        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        applySetting();
 
         tv_day = findViewById(R.id.tv_day);
         tv_test = findViewById(R.id.tv_test);
@@ -85,6 +83,13 @@ public class LunchActivity extends AppCompatActivity {
         }
 
         manager = new LunchParsingManager(time);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void applySetting() {
