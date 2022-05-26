@@ -9,6 +9,7 @@ import android.util.Log;
 import androidx.annotation.RequiresApi;
 
 import com.techtown.studentmanagementapp.entity.Student;
+import com.techtown.studentmanagementapp.manager.StudentManager;
 
 public class SharedPreferenceUtil {
     public static String TAG = "SharedPreferenceUtil";
@@ -24,7 +25,7 @@ public class SharedPreferenceUtil {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void putStudent(Student student) {
         if (util == null) {
-            Log.d(TAG, "SharedPreferences Null Exception");
+            Log.d(TAG, "putStudent(): SharedPreferences Null Exception");
             return;
         }
 
@@ -35,5 +36,22 @@ public class SharedPreferenceUtil {
         editor.commit();
 
         Log.d(TAG, "profile: " + profile);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+        static public Student getStudent() {
+        if (util == null) {
+            Log.d(TAG, "getStudent(): SharedPreferences Null Exception");
+            return StudentManager.error;
+        }
+
+        String profile = util.getString("Student", "");
+        if (profile.equals("")) {
+            Log.d(TAG, "getStudent(): Profile Null Exception");
+            return StudentManager.guest;
+        }
+        Log.d(TAG, "profile: " + profile);
+
+        return (Student) SerializeUtil.deserialize(profile);
     }
 }
