@@ -13,7 +13,7 @@
         android:networkSecurityConfig="@xml/network_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.NoTitleBar">
+        android:theme="@style/Theme.StudentManagementApp">
         <activity
             android:name=".callActivity"
             android:exported="false" />
