@@ -46,35 +46,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:paddingLeft="50dp"
-                android:paddingRight="50dp">
-
-
-
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="94dp"
-                    android:layout_height="55dp"
-                    android:layout_margin="10dp"
-
-                    android:layout_weight="0.3"
-                    android:fontFamily="@font/hhh"
-                    android:text=" 1학년 1반"
-                    android:textColor="#000000"
-                    android:textSize="37sp"
-                    android:textStyle="bold|italic" />
-
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="0dp"
-                    android:layout_height="55dp"
-                    android:layout_margin="10dp"
-                    android:layout_weight="0.2"
-                    android:background="#FFFFFF"
-                    app:srcCompat="@drawable/call" />
-
-
-            </LinearLayout>
+                android:paddingRight="50dp"/>
 
         </LinearLayout>
 
