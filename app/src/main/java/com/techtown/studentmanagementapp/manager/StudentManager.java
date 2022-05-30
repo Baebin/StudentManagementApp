@@ -10,7 +10,6 @@ public class StudentManager {
         if (student.getClass_() == 0 && student.getName_().equals(guest.getName_())) {
             return true;
         }
-
         return false;
     }
 
@@ -18,7 +17,6 @@ public class StudentManager {
         if (student.getClass_() == 0 && student.getName_().equals(error.getName_())) {
             return true;
         }
-
         return false;
     }
 }

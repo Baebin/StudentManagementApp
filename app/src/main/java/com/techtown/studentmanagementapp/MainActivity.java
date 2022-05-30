@@ -27,5 +27,6 @@ public class MainActivity extends AppCompatActivity {
         student = SharedPreferenceUtil.getStudent();
 
         Log.d(TAG, "Student Updated");
+
     }
 }

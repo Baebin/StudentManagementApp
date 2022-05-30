@@ -28,7 +28,6 @@ public class SharedPreferenceUtil {
             Log.d(TAG, "putStudent(): SharedPreferences Null Exception");
             return;
         }
-
         String profile = SerializeUtil.serialize(student);
 
         editor = util.edit();
