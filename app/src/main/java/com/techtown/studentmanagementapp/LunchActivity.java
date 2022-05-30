@@ -43,9 +43,7 @@ public class LunchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lunch);
 
 
-        // Toolbar - Back Button
-        Toolbar mToolbar = findViewById(R.id.toolbar_back);
-        setSupportActionBar(mToolbar);
+
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         applySetting();
