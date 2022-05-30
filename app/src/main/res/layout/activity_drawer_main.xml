@@ -20,9 +20,9 @@
 
         <ImageView
             android:id="@+id/iv_profile"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_width="270dp"
+            android:layout_height="148dp"
+            tools:srcCompat="@drawable/human" />
     </LinearLayout>
 
     <View
@@ -85,6 +85,17 @@
                 android:textColor="#000000"
                 android:textSize='20dp'
                 android:text="학교 홈페이지" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.05"
+                android:backgroundTint="#FFFFFF"
+                android:fontFamily="@font/hhh"
+                android:textColor="#000000"
+                android:textSize='20dp'
+                android:text="오류 사항 문의" />
 
             <TextView
                 android:id="@+id/textView6"

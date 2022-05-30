@@ -107,7 +107,6 @@ public class LunchParsingManager {
     public LunchParsingURL getUrl_A() {
         return url_A;
     }
-
     public LunchParsingURL getUrl_B() {
         return url_B;
     }
