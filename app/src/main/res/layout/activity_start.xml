@@ -23,6 +23,7 @@
         android:layout_height="3dp"
         android:layout_weight="0.3"
         android:text="     K-Lunch"
+
         android:textSize='70dp'
         android:textStyle="italic" />
     <ImageView
