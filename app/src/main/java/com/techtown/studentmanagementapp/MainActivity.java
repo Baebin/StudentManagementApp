@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         // Firebase
         fdb = FirebaseDatabase.getInstance();
         FirebaseManager.init(fdb);
+        /*
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
             @Override
             public void onComplete(@NonNull Task<String> task) {
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 } else Log.d(TAG, "Token: Error");
             }
         });
+         */
 
         button_1 = findViewById(R.id.button_1);
         button_1.setOnClickListener(new View.OnClickListener() {
@@ -91,10 +93,13 @@ public class MainActivity extends AppCompatActivity {
         switch (id) {
             case "call_1":
                 intent_call.putExtra("grade", 1);
+                break;
             case "call_2":
                 intent_call.putExtra("grade", 2);
+                break;
             case "call_3":
                 intent_call.putExtra("grade", 3);
+                break;
             default:
                 break;
         }

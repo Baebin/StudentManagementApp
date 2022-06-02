@@ -1,5 +1,6 @@
 package com.techtown.studentmanagementapp.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHolder> {
-    private static final String TAG = "FriendsAdapter";
+    private static final String TAG = "StudentsAdapter";
 
     List<Student> studentArrayList = new ArrayList<>();
 
@@ -28,7 +29,8 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
         this.studentsClickListener = listener;
     }
 
-    public void addFriend(Student student) {
+    public void addStudent(Student student) {
+        Log.d(TAG, "addStudent()");
         studentArrayList.add(student);
     }
 
@@ -60,7 +62,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull StudentsAdapter.ViewHolder holder, int position) {
         Student student = studentArrayList.get(position);
-        holder.setFriend(student);
+        holder.setStudent(student);
     }
 
     @Override
@@ -89,7 +91,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
             });
         }
 
-        public void setFriend(Student student) {
+        public void setStudent(Student student) {
             tv_name.setText(student.getGrade_() + "학년 " + student.getClass_() + "반");
         }
     }
