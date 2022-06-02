@@ -31,7 +31,7 @@
         android:layout_height="0dp"
         android:layout_weight="1.3"
         android:orientation="vertical"
-        app:srcCompat="@drawable/rogo"
+        app:srcCompat="@drawable/rog"
         />
 
 
