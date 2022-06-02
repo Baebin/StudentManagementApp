@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,5 +52,23 @@ public class MainActivity extends AppCompatActivity {
                 } else Log.d(TAG, "Token: Error");
             }
         });
+    }
+
+    public void sendIntent(String id) {
+        Log.d(TAG, "sendIntent(" + id + ")");
+        Intent intent_call = new Intent(MainActivity.this, CallActivity.class);
+
+        switch (id) {
+            case "call_1":
+                intent_call.putExtra("grade", 1);
+            case "call_2":
+                intent_call.putExtra("grade", 2);
+            case "call_3":
+                intent_call.putExtra("grade", 3);
+            default:
+                break;
+        }
+
+        if (id.contains("call_")) startActivity(intent_call);
     }
 }
