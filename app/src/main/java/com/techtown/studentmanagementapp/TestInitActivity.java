@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+
 public class TestInitActivity extends AppCompatActivity {
     static public String TAG = "TestInitActivity";
 
@@ -52,6 +55,15 @@ public class TestInitActivity extends AppCompatActivity {
                 sendIntent("Login");
             }
         });
+
+        // Firebase
+        FirebaseOptions options = new FirebaseOptions.Builder()
+                .setApplicationId("1:605655454660:android:b289cb85b1c2c8c66e8a91") // Required for Analytics.
+                .setProjectId("studentmanagementapp-69d22") // Required for Firebase Installations.
+                .setApiKey("AIzaSyDlb3GA92rbW_-8nVjtqOsq5tJosyaWEVs") // Required for Auth.
+                .build();
+        FirebaseApp.initializeApp(this, options, "StudentManagementApp");
+        Log.d(TAG, "FirebaseApp.initializeApp()");
     }
 
     private void sendIntent(String activity) {

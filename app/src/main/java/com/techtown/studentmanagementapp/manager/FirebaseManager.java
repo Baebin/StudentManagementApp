@@ -11,6 +11,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.techtown.studentmanagementapp.entity.Student;
 
+import org.json.JSONObject;
+
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +27,9 @@ public class FirebaseManager {
     static private FirebaseDatabase fdb;
     static private DatabaseReference ref_students;
     static private DatabaseReference ref_users;
+
+    private static final String FCM_MESSAGE_URL = "https://fcm.googleapis.com/fcm/send";
+    private static final String SERVER_KEY = "AAAAjQPg08Q:APA91bGiPkcrD1ZiXMqJ-";
 
     public static void init(FirebaseDatabase fdb) {
         Log.d(TAG, "init()");
@@ -48,21 +56,25 @@ public class FirebaseManager {
 
         List<String> tokens = new ArrayList<>();
         ref_students.addListenerForSingleValueEvent(new ValueEventListener() {
+            String gc_token = "";
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int count = (int) snapshot.getChildrenCount();
+                Log.d(TAG, "count: " + count);
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     String gc_user = dataSnapshot.getValue().toString();
+                    Log.d(TAG, "gc_user: " + gc_user);
                     if (gc.equals(gc_user)) {
-                        String gc_token = dataSnapshot.getKey();
+                        gc_token = dataSnapshot.getKey();
                         tokens.add(gc_token);
 
                         Log.d(TAG, count + ". " + gc_token);
                     }
                 }
 
-                callStudents(tokens);
+                if (!gc_token.equals(""))
+                    callStudents(gc, tokens);
             }
 
             @Override
@@ -72,7 +84,47 @@ public class FirebaseManager {
         });
     }
 
-    private static void callStudents(List<String> tokens) {
+    private static void callStudents(String gc, List<String> tokens) {
+        Student student = StudentManager.getGCStudent(gc);
+
+        String grade_ = student.getGrade_() + "";
+        String class_ = student.getClass_() + "";
+
         Log.d(TAG, "callStudents(): " + tokens);
+        Log.d(TAG, "gc: " + gc
+                    + "\n" + "grade: " + grade_
+                    + "\n" + "class: " + class_);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (String token: tokens) {
+                    try {
+                        JSONObject root = new JSONObject();
+                        JSONObject notification = new JSONObject();
+                        notification.put("grade", grade_);
+                        notification.put("class", class_);
+                        root.put("notification", notification);
+                        root.put("to", token);
+
+                        URL Url = new URL(FCM_MESSAGE_URL);
+                        HttpURLConnection connection = (HttpURLConnection) Url.openConnection();
+                        connection.setRequestMethod("POST");
+                        connection.setDoOutput(true);
+                        connection.setDoInput(true);
+                        connection.addRequestProperty("Authorization", "key=" + SERVER_KEY);
+                        connection.setRequestProperty("Accept", "application/json");
+                        connection.setRequestProperty("Content-type", "application/json");
+
+                        OutputStream os = connection.getOutputStream();
+                        os.write(root.toString().getBytes("utf-8"));
+                        os.flush();
+                        connection.getResponseCode();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
     }
 }
