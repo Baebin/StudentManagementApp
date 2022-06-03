@@ -51,6 +51,12 @@ public class FirebaseManager {
         ref_students.child(token).setValue(gc);
     }
 
+    public static void removeStudent() {
+        Log.d(TAG, "removeStudent(): " + token);
+
+        ref_students.child(token).setValue("");
+    }
+
     public static void callStudents(String gc) {
         Log.d(TAG, "callStudents(): " + gc);
 

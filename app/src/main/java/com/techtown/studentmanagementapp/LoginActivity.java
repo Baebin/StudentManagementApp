@@ -25,6 +25,8 @@ import com.techtown.studentmanagementapp.util.SharedPreferenceUtil;
 public class LoginActivity extends AppCompatActivity {
     static public String TAG = "LoginActivity";
 
+    private String token = "";
+
     private View view;
 
     private EditText edtv_grade;
@@ -47,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<String> task) {
                 if (task.isComplete()) {
-                    String token = task.getResult();
+                    token = task.getResult();
                     Log.d(TAG, "Token: " + token);
 
                     FirebaseManager.setToken(token);
@@ -75,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public void checkLogin() {
+    private void checkLogin() {
         String output = " 정보가 입력되지 않았습니다.";
         String error = " 정보가 올바르지 않습니다.";
 
@@ -118,27 +120,33 @@ public class LoginActivity extends AppCompatActivity {
         if (name_.equals("")) { showSnackbar("이름" + output); return; }
         if (name_.length() < 2) { showSnackbar("이름" + error); return; }
 
+        if (token.equals("")) {
+            Log.d(TAG, "Token: Error");
+            showSnackbar("잠시 후 다시 시도해주세요.");
+            return;
+        }
+
         Student student = new Student(grade_, class_, number_, name_);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             SharedPreferenceUtil.putStudent(student);
         }
-        showSnackbar(student.getName_() + "님, 환영합니다.");
-
         FirebaseManager.saveStudent(student);
+
+        showSnackbar(student.getName_() + "님, 환영합니다.");
         sendIntent();
     }
 
-    public void sendIntent() {
+    private void sendIntent() {
         Intent intent_main = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent_main);
     }
 
-    public void showToast(String data) {
+    private void showToast(String data) {
         Log.d(TAG, "showToast(" + data + ")");
         Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
     }
 
-    public void showSnackbar(String data) {
+    private void showSnackbar(String data) {
         Log.d(TAG, "showSnackbar(" + data + ")");
         final Snackbar snackbar = Snackbar.make(view, data, Snackbar.LENGTH_SHORT);
         snackbar.setAction("확인", new View.OnClickListener() {
