@@ -72,7 +72,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void sendIntent(String id) {
+    private void sendIntent(String id) {
         Log.d(TAG, "sendIntent(" + id + ")");
 
         switch (id) {
