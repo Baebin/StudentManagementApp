@@ -1,5 +1,6 @@
 package com.techtown.studentmanagementapp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,8 +13,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.techtown.studentmanagementapp.entity.Student;
+import com.techtown.studentmanagementapp.manager.FirebaseManager;
 import com.techtown.studentmanagementapp.util.SharedPreferenceUtil;
 
 public class LoginActivity extends AppCompatActivity {
@@ -34,6 +40,20 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Log.d(TAG, "onCreate()");
+
+        // Firebase
+        FirebaseManager.init(FirebaseDatabase.getInstance());
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (task.isComplete()) {
+                    String token = task.getResult();
+                    Log.d(TAG, "Token: " + token);
+
+                    FirebaseManager.setToken(token);
+                } else Log.d(TAG, "Token: Error");
+            }
+        });
 
         view = findViewById(R.id.view);
 
@@ -104,6 +124,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         showSnackbar(student.getName_() + "님, 환영합니다.");
 
+        FirebaseManager.saveStudent(student);
         sendIntent();
     }
 
