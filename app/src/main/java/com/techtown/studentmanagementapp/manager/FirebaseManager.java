@@ -103,10 +103,10 @@ public class FirebaseManager {
                 for (String token: tokens) {
                     try {
                         JSONObject root = new JSONObject();
-                        JSONObject notification = new JSONObject();
-                        notification.put("grade", grade_);
-                        notification.put("class", class_);
-                        root.put("notification", notification);
+                        JSONObject data = new JSONObject();
+                        data.put("grade", grade_);
+                        data.put("class", class_);
+                        root.put("data", data);
                         root.put("to", token);
 
                         URL Url = new URL(FCM_MESSAGE_URL);
