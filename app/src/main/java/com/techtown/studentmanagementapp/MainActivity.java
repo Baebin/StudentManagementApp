@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.techtown.studentmanagementapp.entity.Student;
@@ -23,14 +24,12 @@ public class MainActivity extends AppCompatActivity {
     static public String TAG = "MainActivity";
 
     public static Student student = null;
-    public static String token = "";
 
     private FirebaseDatabase fdb;
 
     private Button button_1;
     private Button button_2;
     private Button button_3;
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -46,14 +45,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "Student Updated");
 
         // Firebase
-        fdb = FirebaseDatabase.getInstance();
-        FirebaseManager.init(fdb);
-
+        FirebaseManager.init(FirebaseDatabase.getInstance());
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
             @Override
             public void onComplete(@NonNull Task<String> task) {
                 if (task.isComplete()) {
-                    token = task.getResult();
+                    String token = task.getResult();
                     Log.d(TAG, "Token: " + token);
 
                     FirebaseManager.setToken(token);
@@ -85,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void sendIntent(String id) {
+    private void sendIntent(String id) {
         Log.d(TAG, "sendIntent(" + id + ")");
         Intent intent_call = new Intent(MainActivity.this, CallActivity.class);
 

@@ -88,6 +88,17 @@
                 android:text="학교 홈페이지" />
 
             <Button
+                android:id="@+id/button6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.05"
+                android:backgroundTint="#FFFFFF"
+                android:fontFamily="@font/hhh"
+                android:textColor="#000000"
+                android:textSize='20dp'
+                android:text="학사일정 바로가기" />
+
+            <Button
                 android:id="@+id/button5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.05"
-                android:text="                          빈이메일"
+                android:text="                 baebin@naver.com"
                 android:fontFamily="@font/hhh"
                 android:textSize='18dp'
                 android:textColor="#666666"
