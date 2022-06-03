@@ -55,9 +55,10 @@ public class StartActivity extends AppCompatActivity {
 
         button_login_guest = findViewById(R.id.button_login_guest);
         button_login_guest.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-
+                sendIntent("login_guest");
             }
         });
 
