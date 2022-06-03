@@ -29,7 +29,7 @@ public class FirebaseManager {
     static private DatabaseReference ref_users;
 
     private static final String FCM_MESSAGE_URL = "https://fcm.googleapis.com/fcm/send";
-    private static final String SERVER_KEY = "AAAAjQPg08Q:APA91bGiPkcrD1ZiXMqJ-";
+    private static final String SERVER_KEY = "AAAAjQPg08Q:APA91bGiPkcrD1ZiXMqJ-XgxAxnUWvhO5wvKutbCi4uan7Htk5XQQaVYo_9rhdq7PhjHAzzl-9GorH2s52_hF6N7PMSR_KuocvDTG402j0pBXS42K0vBb9LZb-MxXHkOZYfB6a8uW7eK";
 
     public static void init(FirebaseDatabase fdb) {
         Log.d(TAG, "init()");
@@ -62,6 +62,8 @@ public class FirebaseManager {
                 int count = (int) snapshot.getChildrenCount();
                 Log.d(TAG, "count: " + count);
 
+                int i = 0;
+
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     String gc_user = dataSnapshot.getValue().toString();
                     Log.d(TAG, "gc_user: " + gc_user);
@@ -69,7 +71,7 @@ public class FirebaseManager {
                         gc_token = dataSnapshot.getKey();
                         tokens.add(gc_token);
 
-                        Log.d(TAG, count + ". " + gc_token);
+                        Log.d(TAG, ++i + ". " + gc_token);
                     }
                 }
 
