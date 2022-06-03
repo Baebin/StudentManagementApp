@@ -21,11 +21,25 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:layout_weight="0.3"
-        android:text="     K-Lunch"
-
-        android:textSize='70dp'
+        android:layout_weight="0.2"
+        android:fontFamily="@font/tway"
+        android:text="    신천고의"
+        android:textColor="#2DB4C5"
+        android:textSize='40dp'
         android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_weight="0.3"
+        android:fontFamily="@font/tway"
+        android:text="   점심시간! "
+        android:textColor="#7D1739"
+        android:textSize='65dp'
+        android:textStyle="italic" />
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
