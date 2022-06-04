@@ -3,13 +3,16 @@ package com.techtown.studentmanagementapp;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
     public static Student student = null;
 
     private FirebaseDatabase fdb;
+
+    private DrawerLayout drawerLayout;
+    private View view_drawer;
+
+    private ImageView iv_profile;
+
+    private View view;
 
     private Button button_1;
     private Button button_2;
@@ -58,6 +68,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        view = findViewById(R.id.view);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        drawerLayout.addDrawerListener(drawerListener);
+
+        view_drawer = findViewById(R.id.drawer_view);
+        view_drawer.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return true;
+            }
+        });
+
+        iv_profile = findViewById(R.id.iv_profile);
+        iv_profile.setImageResource(R.drawable.human);
+
         button_1 = findViewById(R.id.button_1);
         button_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +107,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    private DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {
+        @Override
+        public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+            Log.d(TAG, "onDrawerSlide()");
+        }
+
+        @Override
+        public void onDrawerOpened(@NonNull View drawerView) {
+            Log.d(TAG, "onDrawerOpened()");
+        }
+
+        @Override
+        public void onDrawerClosed(@NonNull View drawerView) {
+            Log.d(TAG, "onDrawerClosed");
+        }
+
+        @Override
+        public void onDrawerStateChanged(int newState) {
+            Log.d(TAG, "onDrawerStateChanged");
+        }
+    };
 
     private void sendIntent(String id) {
         Log.d(TAG, "sendIntent(" + id + ")");

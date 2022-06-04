@@ -57,6 +57,7 @@ public class TestInitActivity extends AppCompatActivity {
         });
 
         // Firebase
+        /*
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setApplicationId("1:605655454660:android:b289cb85b1c2c8c66e8a91") // Required for Analytics.
                 .setProjectId("studentmanagementapp-69d22") // Required for Firebase Installations.
@@ -64,6 +65,7 @@ public class TestInitActivity extends AppCompatActivity {
                 .build();
         FirebaseApp.initializeApp(this, options, "StudentManagementApp");
         Log.d(TAG, "FirebaseApp.initializeApp()");
+         */
     }
 
     private void sendIntent(String activity) {
