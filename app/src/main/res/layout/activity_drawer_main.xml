@@ -6,7 +6,7 @@
     android:layout_width="300dp"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:background="#ffffff"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -106,7 +106,7 @@
                 android:textSize='20dp' />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/tv_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.05"
@@ -114,10 +114,11 @@
                 android:fontFamily="@font/hhh"
                 android:text="baebine@naver.com"
                 android:textColor="#666666"
-                android:textSize='18dp' />
+                android:textSize='18dp'
+                android:autoLink="email" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tv_empty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"

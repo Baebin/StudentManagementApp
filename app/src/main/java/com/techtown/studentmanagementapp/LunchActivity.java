@@ -27,29 +27,26 @@ public class LunchActivity extends AppCompatActivity {
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-    private TextView tv_day;
-    private TextView tv_test;
-    private Button button_test;
-
     private Time time;
     private LunchParsingManager manager;
 
     private int stack;
     private String[] days = { "월", "화", "수", "목", "금" };
 
+    private TextView tv_day;
+    private TextView tv_test;
+    private Button button_test;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch);
 
-
         // Toolbar - Back Button
         Toolbar mToolbar = findViewById(R.id.toolbar_back);
-        setSupportActionBar(mToolbar);
+        applyToolbar(mToolbar);
 
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        applySetting();
-
+        // activity_lunch.xml
         tv_day = findViewById(R.id.tv_day);
         tv_test = findViewById(R.id.tv_test);
 
@@ -88,7 +85,10 @@ public class LunchActivity extends AppCompatActivity {
         manager = new LunchParsingManager(time);
     }
 
-    private void applySetting() {
+    private void applyToolbar(Toolbar mToolbar) {
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getSupportActionBar().setTitle("급식표");
     }
 

@@ -40,8 +40,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         Log.d(TAG, "onCreate()");
+
+        SharedPreferenceUtil.init(this);
 
         // Firebase
         FirebaseManager.init(FirebaseDatabase.getInstance());
@@ -57,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // activity_login.xml
         view = findViewById(R.id.view);
 
         edtv_grade = findViewById(R.id.edtv_grade);
@@ -72,8 +74,6 @@ public class LoginActivity extends AppCompatActivity {
                 checkLogin();
             }
         });
-
-        SharedPreferenceUtil.init(this);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
