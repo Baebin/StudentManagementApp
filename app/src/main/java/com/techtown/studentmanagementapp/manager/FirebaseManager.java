@@ -27,6 +27,7 @@ public class FirebaseManager {
     static private FirebaseDatabase fdb;
     static private DatabaseReference ref_students;
     static private DatabaseReference ref_users;
+    static public DatabaseReference ref_classes;
 
     private static final String FCM_MESSAGE_URL = "https://fcm.googleapis.com/fcm/send";
     private static final String SERVER_KEY = "AAAAjQPg08Q:APA91bGiPkcrD1ZiXMqJ-XgxAxnUWvhO5wvKutbCi4uan7Htk5XQQaVYo_9rhdq7PhjHAzzl-9GorH2s52_hF6N7PMSR_KuocvDTG402j0pBXS42K0vBb9LZb-MxXHkOZYfB6a8uW7eK";
@@ -37,6 +38,7 @@ public class FirebaseManager {
         FirebaseManager.fdb = fdb;
         ref_students = fdb.getReference("Students");
         ref_users = fdb.getReference("Users");
+        ref_classes = fdb.getReference("Classes");
     }
 
     public static void setToken(String token) {
@@ -55,6 +57,41 @@ public class FirebaseManager {
         Log.d(TAG, "removeStudent(): " + token);
 
         ref_students.child(token).setValue("");
+    }
+
+    public static void turnClasses(String gc) {
+        Log.d(TAG, "turnClasses(): " + gc);
+
+        ref_classes.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int count = (int) snapshot.getChildrenCount();
+                Log.d(TAG, "count: " + count);
+
+                boolean has = false;
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String gc_class = dataSnapshot.getKey();
+                    Log.d(TAG, "gc_class: " + gc_class);
+                    if (gc.equals(gc_class)) {
+                        has = true;
+                        ref_classes.child(gc).removeValue();
+                        Log.d(TAG, "Turned " + gc + " into (False)");
+                    }
+                }
+
+                if (!has) {
+                    ref_classes.child(gc).setValue("Called");
+                    Log.d(TAG, "Turned " + gc + " into (True)");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d(TAG, "The read failed: " + error.getCode());
+            }
+        });
+        ref_classes.child(gc).setValue("");
     }
 
     public static void callStudents(String gc) {
