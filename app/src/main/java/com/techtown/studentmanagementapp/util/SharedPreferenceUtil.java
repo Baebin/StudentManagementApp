@@ -64,7 +64,7 @@ public class SharedPreferenceUtil {
         Log.d(TAG, "checkStudent()");
         if (!checkUtil()) return false;
 
-        if (SharedPreferenceUtil.getStudent() == null) return false;
+        if (util.getString("Student", "").equals("")) return false;
         return true;
     }
 

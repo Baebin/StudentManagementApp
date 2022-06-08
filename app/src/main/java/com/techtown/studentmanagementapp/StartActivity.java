@@ -77,6 +77,8 @@ public class StartActivity extends AppCompatActivity {
         if (SharedPreferenceUtil.checkStudent()) {
             Log.d(TAG, "Auto Login");
             sendIntent("main");
+        } else {
+            Log.d(TAG, "Auto Login Failed");
         }
     }
 
@@ -85,12 +87,14 @@ public class StartActivity extends AppCompatActivity {
         Log.d(TAG, "sendIntent(" + id + ")");
 
         switch (id) {
-            case "maon":
-                Intent intent_main = new Intent(StartActivity.this, MainActivity.class);
+            case "main":
+                Intent intent_main = new Intent(StartActivity.this, MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent_main);
                 break;
             case "login":
-                Intent intent_login = new Intent(StartActivity.this, LoginActivity.class);
+                Intent intent_login = new Intent(StartActivity.this, LoginActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent_login);
                 break;
             case "login_guest":
@@ -103,7 +107,8 @@ public class StartActivity extends AppCompatActivity {
                 FirebaseManager.removeStudent();
                 SharedPreferenceUtil.putStudent(StudentManager.getGuest());
 
-                Intent intent_login_guest = new Intent(StartActivity.this, MainActivity.class);
+                Intent intent_login_guest = new Intent(StartActivity.this, MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
                 startActivity(intent_login_guest);
                 break;
             default:

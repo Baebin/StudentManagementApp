@@ -6,7 +6,7 @@ public class Student implements Serializable {
     private int grade_ = 0;
     private int class_ = 0;
     private int number_ = 0;
-    private String name_ = "";
+    private String name_ = "Error";
 
     public Student(int grade_, int class_, int number_, String name_) {
         this.grade_ = grade_;
