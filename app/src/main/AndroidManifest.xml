@@ -43,6 +43,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".PopupActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
 
         <service
             android:name=".service.FirebaseMessagingService"
