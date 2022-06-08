@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    tools:context=".PopupActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="0.3"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_weight="0.5"
+        android:fontFamily="@font/BB"
+        android:text="     앱을 종료하시겠습니까?"
+        android:textColor="#000000"
+        android:textSize='27dp' />
+
+    <Button
+        android:id="@+id/button_exit"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_margin="38dp"
+        android:layout_weight="1"
+        android:backgroundTint="#c7c6c4"
+        android:text="exit"
+        android:textColor="#000000"
+        android:textSize='16dp'
+        android:textStyle="italic" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_weight="0.05"
+        android:orientation="vertical">
+    </LinearLayout>
+</LinearLayout>
