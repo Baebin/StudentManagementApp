@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        if (intent != null) startActivity(intent);
+        if (intent != null) startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
