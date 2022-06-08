@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="67dp"
         android:background="#E7DD87"
-        android:backgroundTint="#CDCDCD"
-        app:cardBackgroundColor="@color/white"
+        android:backgroundTint="#81EB06"
+        app:cardBackgroundColor="@color/purple_200"
         app:cardCornerRadius="30dp"
         app:cardElevation="2dp">
 
@@ -28,7 +28,7 @@
                 android:src="@drawable/call"
                 app:civ_border_color="#ffffff"
                 app:civ_border_width="3dp"
-                app:civ_circle_background_color="#807E73"
+                app:civ_circle_background_color="#8BC34A"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,11 +39,11 @@
                 android:layout_width="302dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
-
-
-                android:text="1학년 1반    "
                 android:fontFamily="@font/hhh"
+
+
+                android:gravity="center"
+                android:text="1학년 1반    "
                 android:textColor="@color/black"
                 android:textSize="27sp"
                 android:textStyle="bold" />
@@ -51,9 +51,9 @@
         </LinearLayout>
 
 
-
     </androidx.cardview.widget.CardView>
 
 
 
 </LinearLayout>
+

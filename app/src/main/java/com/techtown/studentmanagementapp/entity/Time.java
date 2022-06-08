@@ -25,10 +25,8 @@ public class Time {
     private Calendar calendar = Calendar.getInstance(Locale.KOREA);;
 
     // Constructor
-
     public Time(String data) throws ParseException {
         Log.d(TAG, "Time(" + format + ")");
-
 
         if (!data.contains("-")) return;
         String[] time = data.split("-");
@@ -51,7 +49,6 @@ public class Time {
     }
 
     // Method
-
     public String getTime() {
         if (year != null && month != null && day != null) {
             return    year + "년 "
@@ -71,7 +68,6 @@ public class Time {
     }
 
     // Getter & Setter
-
     public String getYear() {
         return year;
     }

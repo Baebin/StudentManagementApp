@@ -22,12 +22,19 @@ public class SharedPreferenceUtil {
         util = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
+    private static boolean checkUtil() {
+        if (util == null) {
+            Log.d(TAG, "getStudent(): SharedPreferences Null Exception");
+            return false;
+        }
+        return true;
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void putStudent(Student student) {
-        if (util == null) {
-            Log.d(TAG, "putStudent(): SharedPreferences Null Exception");
-            return;
-        }
+        Log.d(TAG, "putStudent()");
+        if (!checkUtil()) return;
+
         String profile = SerializeUtil.serialize(student);
 
         editor = util.edit();
@@ -38,11 +45,9 @@ public class SharedPreferenceUtil {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-        static public Student getStudent() {
-        if (util == null) {
-            Log.d(TAG, "getStudent(): SharedPreferences Null Exception");
-            return StudentManager.error;
-        }
+    static public Student getStudent() {
+        Log.d(TAG, "getStudent()");
+        if (!checkUtil()) return null;
 
         String profile = util.getString("Student", "");
         if (profile.equals("")) {
@@ -52,5 +57,23 @@ public class SharedPreferenceUtil {
         Log.d(TAG, "profile: " + profile);
 
         return (Student) SerializeUtil.deserialize(profile);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    static public boolean checkStudent() {
+        Log.d(TAG, "checkStudent()");
+        if (!checkUtil()) return false;
+
+        if (SharedPreferenceUtil.getStudent() == null) return false;
+        return true;
+    }
+
+    static public void removeStudent() {
+        Log.d(TAG, "removeStudent()");
+        if (!checkUtil()) return;
+
+        editor = util.edit();
+        editor.remove("Student");
+        editor.commit();
     }
 }

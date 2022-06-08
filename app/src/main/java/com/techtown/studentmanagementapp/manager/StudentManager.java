@@ -22,6 +22,14 @@ public class StudentManager {
         return student;
     }
 
+    public static Student getGuest() {
+        return guest;
+    }
+
+    public static Student getError() {
+        return error;
+    }
+
     static public boolean checkGuest(Student student) {
         if (student.getClass_() == 0 && student.getName_().equals(guest.getName_())) {
             return true;
