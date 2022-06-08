@@ -6,11 +6,8 @@
     android:layout_width="300dp"
     android:layout_height="match_parent"
     android:layout_gravity="start"
-    android:background="#ffffff"
+    android:background="@color/white"
     android:orientation="vertical">
-
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,7 +37,6 @@
         android:layout_marginRight="15dp"
         android:background="#000000" />
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -48,7 +44,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_nick"
+            android:id="@+id/tv_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
@@ -66,7 +62,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button_student"
+                android:id="@+id/button_lunch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.05"
@@ -77,7 +73,7 @@
                 android:text="이번주 급식" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/button_school"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.05"
@@ -88,7 +84,7 @@
                 android:text="학교 홈페이지" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/button_calendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.05"
@@ -99,7 +95,7 @@
                 android:text="학사일정 바로가기" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/button_error"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.05"
@@ -110,26 +106,24 @@
                 android:textSize='20dp' />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/tv_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.05"
-                android:text="                 baebin@naver.com"
+                android:gravity="center"
                 android:fontFamily="@font/hhh"
-                android:textSize='18dp'
+                android:text="baebine@naver.com"
                 android:textColor="#666666"
-                />
+                android:textSize='18dp'
+                android:autoLink="email" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tv_empty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"
                 android:text="" />
-
-
         </LinearLayout>
-
 
         <Button
             android:id="@+id/button_logout"
@@ -142,12 +136,7 @@
             android:textColor="#000000"
             android:text="로그아웃" />
 
-
-
          </LinearLayout>
-
-
-
 </LinearLayout>
 
 
