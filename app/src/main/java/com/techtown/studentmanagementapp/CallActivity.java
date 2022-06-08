@@ -19,24 +19,25 @@ import com.techtown.studentmanagementapp.manager.StudentManager;
 public class CallActivity extends AppCompatActivity {
     public static String TAG = "CallActivity";
 
+    private int grade;
+
     private StudentsAdapter studentsAdapter;
     private RecyclerView studentView;
-
-    private int grade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call);
-
         Log.d(TAG, "onCreate()");
 
         // Firebase
         FirebaseManager.init(FirebaseDatabase.getInstance());
 
+        // Intent
         grade = getIntent().getIntExtra("grade", 1);
         Log.d(TAG, "grade: " + grade);
 
+        // activity_call.xml
         studentView = findViewById(R.id.student_layout);
         studentsAdapter = new StudentsAdapter();
         studentsAdapter.setOnItemClickListener(new OnStudentsClickListener() {

@@ -30,11 +30,12 @@ public class StartActivity extends AppCompatActivity {
     private Button button_login_guest;
     private Button button_login;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-
+        SharedPreferenceUtil.init(this);
         Log.d(TAG, "onCreate()");
 
         // Firebase
@@ -51,9 +52,12 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+        // activity_start.xml
         view = findViewById(R.id.view);
 
         button_login_guest = findViewById(R.id.button_login_guest);
+        button_login = findViewById(R.id.button_login);
+
         button_login_guest.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -61,8 +65,6 @@ public class StartActivity extends AppCompatActivity {
                 sendIntent("login_guest");
             }
         });
-
-        button_login = findViewById(R.id.button_login);
         button_login.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -70,6 +72,12 @@ public class StartActivity extends AppCompatActivity {
                 sendIntent("login");
             }
         });
+
+        // Auto Login Logic
+        if (SharedPreferenceUtil.checkStudent()) {
+            Log.d(TAG, "Auto Login");
+            sendIntent("main");
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -77,6 +85,10 @@ public class StartActivity extends AppCompatActivity {
         Log.d(TAG, "sendIntent(" + id + ")");
 
         switch (id) {
+            case "maon":
+                Intent intent_main = new Intent(StartActivity.this, MainActivity.class);
+                startActivity(intent_main);
+                break;
             case "login":
                 Intent intent_login = new Intent(StartActivity.this, LoginActivity.class);
                 startActivity(intent_login);
