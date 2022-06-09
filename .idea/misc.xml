@@ -3,19 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.23020833333333332" />
+        <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/layout/activity_call.xml" value="0.2140625" />
+        <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/layout/activity_drawer_main.xml" value="0.37037037037037035" />
         <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/layout/activity_launch.xml" value="0.25" />
         <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/layout/activity_login.xml" value="0.2140625" />
+        <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/layout/activity_lunch.xml" value="0.2140625" />
+        <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/layout/activity_lunch_demo.xml" value="0.3796875" />
+        <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/layout/activity_main.xml" value="0.3796875" />
+        <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/layout/activity_popup.xml" value="0.20052083333333334" />
         <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/layout/activity_start.xml" value="0.2140625" />
         <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/layout/activity_test_init.xml" value="0.2140625" />
+        <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/layout/call_card_item.xml" value="0.2140625" />
         <entry key="..\:/Programming/Android/Projects/AndroidStudioProjects/StudentManagementApp/app/src/main/res/xml/network_config.xml" value="0.22708333333333333" />
         <entry key="..\:/Users/user/StudioProjects/StudentManagementApp/app/src/main/res/layout/activity_call.xml" value="0.3359375" />
         <entry key="..\:/Users/user/StudioProjects/StudentManagementApp/app/src/main/res/layout/activity_drawer_main.xml" value="0.33" />
         <entry key="..\:/Users/user/StudioProjects/StudentManagementApp/app/src/main/res/layout/activity_login.xml" value="0.3359375" />
-        <entry key="..\:/Users/user/StudioProjects/StudentManagementApp/app/src/main/res/layout/activity_login_admin.xml" value="0.33" />
         <entry key="..\:/Users/user/StudioProjects/StudentManagementApp/app/src/main/res/layout/activity_lunch.xml" value="0.33" />
         <entry key="..\:/Users/user/StudioProjects/StudentManagementApp/app/src/main/res/layout/activity_lunch_demo.xml" value="0.33" />
         <entry key="..\:/Users/user/StudioProjects/StudentManagementApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/user/StudioProjects/StudentManagementApp/app/src/main/res/layout/activity_popup.xml" value="0.5" />
         <entry key="..\:/Users/user/StudioProjects/StudentManagementApp/app/src/main/res/layout/activity_start.xml" value="0.33" />
         <entry key="..\:/Users/user/StudioProjects/StudentManagementApp/app/src/main/res/layout/activity_test_init.xml" value="0.33" />
         <entry key="..\:/Users/user/StudioProjects/StudentManagementApp/app/src/main/res/layout/call_card_item.xml" value="0.3359375" />
