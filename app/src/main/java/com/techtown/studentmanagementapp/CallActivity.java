@@ -1,12 +1,15 @@
 package com.techtown.studentmanagementapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
@@ -71,35 +74,47 @@ public class CallActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         studentView.setLayoutManager(linearLayoutManager);
 
-        studentView.setAdapter(studentsAdapter);
+         FirebaseManager.ref_classes.addListenerForSingleValueEvent(new ValueEventListener() {
+             @RequiresApi(api = Build.VERSION_CODES.M)
+             @Override
+             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                 CardView view;
 
-        FirebaseManager.ref_classes.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Map<String, Boolean> classes = new HashMap<>();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String gc_class = dataSnapshot.getKey();
-                    classes.put(gc_class, true);
-                }
+                 Map<String, Boolean> classes = new HashMap<>();
+                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                     String gc_class = dataSnapshot.getKey();
+                     classes.put(gc_class, true);
+                 }
 
-                for (int i = 0; i < 10; i++) {
-                    String gc_class = grade + "";
+                 for (int i = 0; i < 10; i++) {
+                     String gc_class = grade + "";
 
-                    if (i >= 10) gc_class += i;
-                    else gc_class += "0" + i;
+                     if (i >= 10) gc_class += i;
+                     else gc_class += "0" + i;
 
-                    if (classes.containsKey(gc_class)) {
-                        // Green Background
-                    } else {
-                        // Gray Background
-                    }
-                }
-            }
+                     Log.d(TAG, i + ". studentView: " + studentView.getChildAt(i));
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.d(TAG, "The read failed: " + error.getCode());
-            }
-        });
+                     Student student = new Student(grade, i, 0, "");
+                     studentsAdapter.addStudent(student);
+
+                     if (classes.containsKey(gc_class)) {
+                         // Green Background
+                         studentsAdapter.addColor(true);
+                         Log.d(TAG, "cardView(" + i +"): Green");
+                     } else {
+                         // Gray Background
+                         studentsAdapter.addColor(false);
+                         Log.d(TAG, "cardView(" + i +"): Gray");
+                     }
+                 }
+
+                 studentView.setAdapter(studentsAdapter);
+             }
+
+             @Override
+             public void onCancelled(@NonNull DatabaseError error) {
+                 Log.d(TAG, "The read failed: " + error.getCode());
+             }
+         });
     }
 }

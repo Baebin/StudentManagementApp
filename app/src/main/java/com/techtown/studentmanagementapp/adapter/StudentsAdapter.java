@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.techtown.studentmanagementapp.R;
@@ -22,6 +23,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
     private static final String TAG = "StudentsAdapter";
 
     List<Student> studentArrayList = new ArrayList<>();
+    List<Boolean> colorArrayList = new ArrayList<>();
 
     private OnStudentsClickListener studentsClickListener;
 
@@ -50,6 +52,27 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
         studentArrayList.set(position, student);
     }
 
+    public void addColor(boolean color) {
+        Log.d(TAG, "addStudent()");
+        colorArrayList.add(color);
+    }
+
+    public void setColors(ArrayList<Boolean> colorArrayList) {
+        this.colorArrayList = colorArrayList;
+    }
+
+    public void resetColors() {
+        colorArrayList = new ArrayList<Boolean>();
+    }
+
+    public boolean getColors(int position) {
+        return colorArrayList.get(position);
+    }
+
+    public void setColor(int position, boolean color) {
+        colorArrayList.set(position, color);
+    }
+
     @NonNull
     @Override
     public StudentsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -63,6 +86,9 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
     public void onBindViewHolder(@NonNull StudentsAdapter.ViewHolder holder, int position) {
         Student student = studentArrayList.get(position);
         holder.setStudent(student);
+
+        boolean color = colorArrayList.get(position);
+        holder.setBackground(color);
     }
 
     @Override
@@ -71,12 +97,15 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        CardView view;
+
         TextView tv_name;
         CircleImageView iv_image;
 
         public ViewHolder(@NonNull View itemView, OnStudentsClickListener listener) {
             super(itemView);
 
+            view = itemView.findViewById(R.id.cardView);
             tv_name = itemView.findViewById(R.id.tv_name);
             iv_image = itemView.findViewById(R.id.iv_image);
 
@@ -93,6 +122,12 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
 
         public void setStudent(Student student) {
             tv_name.setText(student.getGrade_() + "학년 " + student.getClass_() + "반");
+        }
+
+        public void setBackground(boolean green) {
+            if (green) {
+                //view.setCardBackgroundColor((R.color.green));
+            }
         }
     }
 }
