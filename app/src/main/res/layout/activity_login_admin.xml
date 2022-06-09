@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2.5"
+        android:background="#E5C0EB"
         android:orientation="vertical">
 
 
@@ -22,27 +23,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="25dp"
+            android:background="#E6B1EF"
             android:maxLength="5"
             android:paddingLeft="10dp"
             android:text="Login"
-            android:textColor="#FF0000"
+            android:textAllCaps="false"
+            android:textColor="#9C27B0"
             android:textColorHighlight="#D29E9E"
             android:textColorHint="#FFFFFF"
             android:textSize="93sp"
-            android:textStyle="bold|italic"
-            />
-
+            android:textStyle="bold|italic" />
 
 
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.9"
+        android:background="#B3EFF7"
         android:orientation="horizontal"
         android:paddingRight="30dp">
-
 
 
         <LinearLayout
@@ -58,7 +60,8 @@
             android:layout_margin="3dp"
             android:paddingRight="40dp"
             android:text="Grade"
-            android:textColor="#FF9800"
+            android:textAllCaps="true"
+            android:textColor="#2196F3"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
@@ -78,11 +81,11 @@
             android:textStyle="bold|italic" />
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.9"
+        android:background="#BAF4BD"
         android:paddingRight="30dp">
 
         <LinearLayout
@@ -98,7 +101,9 @@
             android:layout_margin="3dp"
             android:paddingRight="40dp"
             android:text="Class"
-            android:textColor="#FFC107"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#4CAF50"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
@@ -122,6 +127,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.9"
+        android:background="#F7E5AF"
         android:orientation="horizontal"
         android:paddingRight="30dp">
 
@@ -138,7 +144,8 @@
             android:layout_margin="3dp"
             android:paddingRight="40dp"
             android:text="Number"
-            android:textColor="#4CAF50"
+            android:textAllCaps="true"
+            android:textColor="#FFC107"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
@@ -162,6 +169,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.9"
+        android:background="#EFCFA0"
         android:orientation="horizontal"
         android:paddingRight="30dp">
 
@@ -178,7 +186,8 @@
             android:layout_margin="3dp"
             android:paddingRight="40dp"
             android:text="Name"
-            android:textColor="#2196F3"
+            android:textAllCaps="true"
+            android:textColor="#FF9800"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
@@ -201,6 +210,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.5"
+        android:background="#EAADAD"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatButton
@@ -210,7 +220,8 @@
             android:layout_margin="50dp"
             android:background='#0000'
             android:text="Next"
-            android:textColor="#9C27B0"
+            android:textAllCaps="true"
+            android:textColor="#F90505"
             android:textSize="30dp"
             android:textStyle="bold|italic" />
     </LinearLayout>
@@ -219,5 +230,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.5"
+        android:background="#EBC4C4"
         android:orientation="vertical"></LinearLayout>
 </LinearLayout>
