@@ -26,8 +26,19 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical"></LinearLayout>
+                    android:layout_weight="0.3"
+                    android:orientation="vertical">
+
+
+                    <ImageButton
+                        android:id="@+id/imageButton7"
+                        android:layout_width="114dp"
+                        android:layout_height="90dp"
+                        android:background="#FFFFFF"
+                        android:layout_margin="10dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/rainbow" />
+                </LinearLayout>
 
                 <EditText
                     android:id="@+id/edtv_grade"
@@ -37,6 +48,7 @@
                     android:layout_margin="6dp"
                     android:ems="10"
                     android:text='  " Everything is possible."'
+                    android:textColor="#9C27B0"
                     android:textSize="27sp"
                     android:textStyle="bold|italic" />
 
@@ -81,7 +93,7 @@
                         android:background="#FFFFFF"
                         android:fontFamily="@font/hhh"
                         android:text="1학년"
-                        android:textColor="#000000"
+                        android:textColor="#FF0000"
                         android:textSize='31dp'
                         android:textStyle="italic" />
 
@@ -93,7 +105,7 @@
                         android:background="#FFFFFF"
                         android:fontFamily="@font/hhh"
                         android:text="2학년"
-                        android:textColor="#000000"
+                        android:textColor="#FF9800"
                         android:textSize='31dp'
                         android:textStyle="italic" />
 
@@ -105,7 +117,7 @@
                         android:background="#FFFFFF"
                         android:fontFamily="@font/hhh"
                         android:text="3학년"
-                        android:textColor="#000000"
+                        android:textColor="#FFC107"
                         android:textSize='31dp'
                         android:textStyle="italic" />
                 </LinearLayout>

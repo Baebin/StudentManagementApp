@@ -68,9 +68,9 @@
                 android:layout_weight="0.05"
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/hhh"
-                android:textColor="#000000"
-                android:textSize='20dp'
-                android:text="이번주 급식" />
+                android:text="이번주 급식"
+                android:textColor="#FF0303"
+                android:textSize='20dp' />
 
             <Button
                 android:id="@+id/button_school"
@@ -79,9 +79,9 @@
                 android:layout_weight="0.05"
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/hhh"
-                android:textColor="#000000"
-                android:textSize='20dp'
-                android:text="학교 홈페이지" />
+                android:text="학교 홈페이지"
+                android:textColor="#FF9800"
+                android:textSize='20dp' />
 
             <Button
                 android:id="@+id/button_calendar"
@@ -90,9 +90,9 @@
                 android:layout_weight="0.05"
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/hhh"
-                android:textColor="#000000"
-                android:textSize='20dp'
-                android:text="학사일정 바로가기" />
+                android:text="학사일정 바로가기"
+                android:textColor="#FFC107"
+                android:textSize='20dp' />
 
             <Button
                 android:id="@+id/button_error"
@@ -102,7 +102,7 @@
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/hhh"
                 android:text="오류 사항 문의↓"
-                android:textColor="#000000"
+                android:textColor="#4CB750"
                 android:textSize='20dp' />
 
             <TextView
@@ -110,12 +110,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.05"
-                android:gravity="center"
+                android:autoLink="email"
                 android:fontFamily="@font/hhh"
+                android:gravity="center"
                 android:text="baebine@naver.com"
-                android:textColor="#666666"
-                android:textSize='18dp'
-                android:autoLink="email" />
+                android:textColor="#6C39C5"
+                android:textColorLink="#2196F3"
+                android:textSize='18dp' />
 
             <TextView
                 android:id="@+id/tv_empty"
@@ -129,12 +130,12 @@
             android:id="@+id/button_logout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:backgroundTint="#FFFFFF"
             android:fontFamily="@font/hhh"
-            android:textColor="#000000"
-            android:text="로그아웃" />
+            android:text="로그아웃"
+            android:textColor="#A52BBA" />
 
          </LinearLayout>
 </LinearLayout>
