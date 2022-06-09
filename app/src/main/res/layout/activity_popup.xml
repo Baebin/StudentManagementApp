@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:layout_weight="0.5"
-        android:fontFamily="@font/BB"
+        android:fontFamily="@font/bb"
         android:text="     앱을 종료하시겠습니까?"
         android:textColor="#000000"
         android:textSize='27dp' />

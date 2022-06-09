@@ -56,9 +56,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate()");
 
+        // SharedPreferences
         SharedPreferenceUtil.init(this);
         student = SharedPreferenceUtil.getStudent();
         Log.d(TAG, "Student Updated");
+
+        if (!SharedPreferenceUtil.checkStudent() || StudentManager.checkError(student)) {
+            Log.d(TAG, "checkError(): True");
+            sendIntent("start_init");
+            finish();
+            return;
+        }
 
         // Firebase
         FirebaseManager.init(FirebaseDatabase.getInstance());
@@ -145,7 +153,6 @@ public class MainActivity extends AppCompatActivity {
                 sendIntent("call_3");
             }
         });
-
     }
 
     private DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {
@@ -212,11 +219,17 @@ public class MainActivity extends AppCompatActivity {
                 logout();
                 intent = new Intent(MainActivity.this, StartActivity.class);
                 break;
+            case "start_init":
+                intent = new Intent(MainActivity.this, StartActivity.class);
+                break;
+            case "popup":
+                intent = new Intent(MainActivity.this, PopupActivity.class);
+                break;
             default:
                 break;
         }
 
-        if (intent != null) startActivity(intent);
+        if (intent != null) startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -227,9 +240,25 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferenceUtil.removeStudent();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBackPressed() {
         // Disable Back Button
         //super.onBackPressed();
+
+        sendIntent("popup");
+    }
+
+    @Override
+    public Intent getIntent() {
+        Log.d(TAG, "getIntent()");
+
+        Intent intent = super.getIntent();
+
+        boolean exit = intent.getBooleanExtra("exit", false);
+        Log.d(TAG, "exit: " + exit);
+        if (exit) this.finish();
+
+        return intent;
     }
 }

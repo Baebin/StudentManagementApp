@@ -72,22 +72,26 @@ public class TestInitActivity extends AppCompatActivity {
         Log.d(TAG, "sendIntent(): " + activity);
 
         if (activity.equalsIgnoreCase("Lunch")) {
-            Intent intent_lunch = new Intent(getApplicationContext(), LunchActivity.class);
+            Intent intent_lunch = new Intent(getApplicationContext(), LunchActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
             startActivity(intent_lunch);
         }
 
         if (activity.equalsIgnoreCase("Start")) {
-            Intent intent_Start = new Intent(getApplicationContext(), StartActivity.class);
+            Intent intent_Start = new Intent(getApplicationContext(), StartActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
             startActivity(intent_Start);
         }
 
         if (activity.equalsIgnoreCase("Main")) {
-            Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent_main = new Intent(getApplicationContext(), MainActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
             startActivity(intent_main);
         }
 
         if (activity.equalsIgnoreCase("Login")) {
-            Intent intent_login = new Intent(getApplicationContext(), LoginActivity.class);
+            Intent intent_login = new Intent(getApplicationContext(), LoginActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
             startActivity(intent_login);
         }
     }
