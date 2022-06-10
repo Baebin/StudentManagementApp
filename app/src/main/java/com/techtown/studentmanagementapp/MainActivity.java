@@ -13,11 +13,11 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.techtown.studentmanagementapp.entity.Student;
@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     private Button button_2;
     private Button button_3;
 
+
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,21 @@ public class MainActivity extends AppCompatActivity {
             finish();
             return;
         }
+
+
+
+
+        //드로어 화면을 열고 닫을 버튼 객체 참조
+        ImageButton btnOpenDrawer = (ImageButton) findViewById(R.id.btn_OpenDrawer);
+
+        //드로어 여는 버튼 리스너
+        btnOpenDrawer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(view_drawer);
+            }
+        });
+
 
         // Firebase
         FirebaseManager.init(FirebaseDatabase.getInstance());
@@ -154,6 +171,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {
         @Override
