@@ -83,6 +83,8 @@ public class FirebaseManager {
                 if (!has) {
                     ref_classes.child(gc).setValue("Called");
                     Log.d(TAG, "Turned " + gc + " into (True)");
+
+                    callStudents(gc);
                 }
             }
 
@@ -91,7 +93,6 @@ public class FirebaseManager {
                 Log.d(TAG, "The read failed: " + error.getCode());
             }
         });
-        ref_classes.child(gc).setValue("");
     }
 
     public static void callStudents(String gc) {

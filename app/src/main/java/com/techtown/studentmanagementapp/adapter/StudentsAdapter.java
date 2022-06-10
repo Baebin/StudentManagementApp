@@ -1,5 +1,7 @@
 package com.techtown.studentmanagementapp.adapter;
 
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,12 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
 
     public void setOnItemClickListener(OnStudentsClickListener listener) {
         this.studentsClickListener = listener;
+    }
+
+    public void add(Student student, boolean color) {
+        Log.d(TAG, "add()");
+        studentArrayList.add(student);
+        colorArrayList.add(color);
     }
 
     public void addStudent(Student student) {
@@ -125,8 +133,15 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
         }
 
         public void setBackground(boolean green) {
+            Log.d(TAG, "setBackground(): " + green);
             if (green) {
-                //view.setCardBackgroundColor((R.color.green));
+                view.setCardBackgroundColor(
+                        Color.parseColor("#81EB06")
+                );
+            } else {
+                view.setCardBackgroundColor(
+                        Color.parseColor("#CDCDCD")
+                );
             }
         }
     }
