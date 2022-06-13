@@ -70,21 +70,6 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-
-
-
-        //드로어 화면을 열고 닫을 버튼 객체 참조
-        ImageButton btnOpenDrawer = (ImageButton) findViewById(R.id.btn_OpenDrawer);
-
-        //드로어 여는 버튼 리스너
-        btnOpenDrawer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.openDrawer(view_drawer);
-            }
-        });
-
-
         // Firebase
         FirebaseManager.init(FirebaseDatabase.getInstance());
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
@@ -170,9 +155,17 @@ public class MainActivity extends AppCompatActivity {
                 sendIntent("call_3");
             }
         });
+
+        ImageButton btnOpenDrawer = (ImageButton) findViewById(R.id.btn_OpenDrawer);
+
+        // Drawer Opening Listener
+        btnOpenDrawer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(view_drawer);
+            }
+        });
     }
-
-
 
     private DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {
         @Override
