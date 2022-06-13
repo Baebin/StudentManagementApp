@@ -92,6 +92,7 @@ public class SharedPreferenceUtil {
         Log.d(TAG, "admin: " + admin);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     static public AdminInfo getAdminInfo() {
         Log.d(TAG, "getAdminInfo()");
         if (!checkUtil()) return null;
