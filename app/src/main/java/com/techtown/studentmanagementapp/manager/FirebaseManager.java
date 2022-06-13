@@ -26,7 +26,7 @@ public class FirebaseManager {
 
     static private FirebaseDatabase fdb;
     static private DatabaseReference ref_students;
-    static private DatabaseReference ref_users;
+    static public DatabaseReference ref_users;
     static public DatabaseReference ref_classes;
 
     private static final String FCM_MESSAGE_URL = "https://fcm.googleapis.com/fcm/send";
