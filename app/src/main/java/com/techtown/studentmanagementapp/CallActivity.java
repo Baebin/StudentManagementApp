@@ -12,7 +12,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,6 +36,12 @@ public class CallActivity extends AppCompatActivity {
     private StudentsAdapter studentsAdapter;
     private RecyclerView studentView;
 
+    private ValueEventListener listener = null;
+
+    public static boolean click = true;
+
+    private View view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,73 +56,120 @@ public class CallActivity extends AppCompatActivity {
         Log.d(TAG, "grade: " + grade);
 
         // activity_call.xml
+        view = findViewById(R.id.view);
         studentView = findViewById(R.id.student_layout);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        studentView.setLayoutManager(linearLayoutManager);
+
+        click = true;
+        setAdapter();
+        FirebaseManager.ref_classes.addValueEventListener(listener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                setAdapter();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d(TAG, "The read failed: " + error.getCode());
+            }
+        });
+    }
+
+    private void initAdapter() {
+        Log.d(TAG, "initAdapter()");
         studentsAdapter = new StudentsAdapter();
         studentsAdapter.setOnItemClickListener(new OnStudentsClickListener() {
             @Override
             public void onItemClickListener(StudentsAdapter.ViewHolder holder, View view, int position) {
                 Log.d(TAG, "studentsAdapter.onItemClickListener() : " + position);
 
+                if (!click) {
+                    showSnackbar("잠시 후 다시 시도해주세요.");
+                    return;
+                }
+
                 Student student = new Student(grade, position+1, 0, "");
-                FirebaseManager.callStudents(
-                        StudentManager.getGC(student)
-                );
                 FirebaseManager.turnClasses(
                         StudentManager.getGC(student)
                 );
+
+                click = false;
+                Log.d(TAG, "click: false");
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        click = true;
+                        Log.d(TAG, "click: true");
+                    }
+                }, 3000);
             }
         });
+    }
 
-        for (int i = 1; i <= 10; i++){
-            Log.d(TAG, "Student: " + i);
-            Student student = new Student(grade, i, 0, "");
-            studentsAdapter.addStudent(student);
-        }
+    private void setAdapter() {
+        Log.d(TAG, "setAdapter()");
+        initAdapter();
+        FirebaseManager.ref_classes.addListenerForSingleValueEvent(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                CardView view;
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
-        studentView.setLayoutManager(linearLayoutManager);
+                Map<String, Boolean> classes = new HashMap<>();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String gc_class = dataSnapshot.getKey();
+                    classes.put(gc_class, true);
+                }
 
-         FirebaseManager.ref_classes.addListenerForSingleValueEvent(new ValueEventListener() {
-             @RequiresApi(api = Build.VERSION_CODES.M)
-             @Override
-             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                 CardView view;
+                for (int i = 1; i <= 10; i++) {
+                    String gc_class = grade + "";
 
-                 Map<String, Boolean> classes = new HashMap<>();
-                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                     String gc_class = dataSnapshot.getKey();
-                     classes.put(gc_class, true);
-                 }
+                    if (i >= 10) gc_class += i;
+                    else gc_class += "0" + i;
 
-                 for (int i = 0; i < 10; i++) {
-                     String gc_class = grade + "";
+                    Student student = new Student(grade, i, 0, "");
 
-                     if (i >= 10) gc_class += i;
-                     else gc_class += "0" + i;
+                    if (classes.containsKey(gc_class)) {
+                        // Green Background
+                        studentsAdapter.add(student, true);
+                        Log.d(TAG, "cardView(" + i +"): Green");
+                    } else {
+                        // Gray Background
+                        studentsAdapter.add(student, false);
+                        Log.d(TAG, "cardView(" + i +"): Gray");
+                    }
+                }
+                studentView.setAdapter(studentsAdapter);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d(TAG, "The read failed: " + error.getCode());
+            }
+        });
+    }
 
-                     Log.d(TAG, i + ". studentView: " + studentView.getChildAt(i));
+    @Override
+    protected void onDestroy() {
+        Log.d(TAG, "onDestory()");
+        if (listener != null) FirebaseManager.ref_classes.removeEventListener(listener);
+        super.onDestroy();
+    }
 
-                     Student student = new Student(grade, i, 0, "");
-                     studentsAdapter.addStudent(student);
+    private void showToast(String data) {
+        Log.d(TAG, "showToast(" + data + ")");
+        Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
+    }
 
-                     if (classes.containsKey(gc_class)) {
-                         // Green Background
-                         studentsAdapter.addColor(true);
-                         Log.d(TAG, "cardView(" + i +"): Green");
-                     } else {
-                         // Gray Background
-                         studentsAdapter.addColor(false);
-                         Log.d(TAG, "cardView(" + i +"): Gray");
-                     }
-                 }
-
-                 studentView.setAdapter(studentsAdapter);
-             }
-
-             @Override
-             public void onCancelled(@NonNull DatabaseError error) {
-                 Log.d(TAG, "The read failed: " + error.getCode());
-             }
-         });
+    private void showSnackbar(String data) {
+        Log.d(TAG, "showSnackbar(" + data + ")");
+        final Snackbar snackbar = Snackbar.make(view, data, Snackbar.LENGTH_SHORT);
+        snackbar.setAction("확인", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                snackbar.dismiss();
+            }
+        }).show();
     }
 }
