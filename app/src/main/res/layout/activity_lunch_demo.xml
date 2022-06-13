@@ -23,11 +23,11 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/gg"
+        android:fontFamily="@font/hhh"
         android:textColor="#000000"
         android:text=' "이번주 급식"'
-
-        android:textSize='50dp'
+        android:textStyle="bold|italic"
+        android:textSize='40dp'
          />
 
     <View
@@ -103,7 +103,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.2"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+    </LinearLayout>
 
 
 </LinearLayout>
