@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
     private Button button_2;
     private Button button_3;
 
-
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {

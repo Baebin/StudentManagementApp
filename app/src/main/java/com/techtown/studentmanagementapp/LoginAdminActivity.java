@@ -12,14 +12,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.techtown.studentmanagementapp.entity.AdminInfo;
 import com.techtown.studentmanagementapp.manager.FirebaseManager;
 import com.techtown.studentmanagementapp.util.SharedPreferenceUtil;
@@ -42,7 +39,7 @@ public class LoginAdminActivity extends AppCompatActivity {
         // Firebase
         FirebaseManager.init(FirebaseDatabase.getInstance());
 
-        // activity_login.xml
+        // activity_login_admin.xml
         view = findViewById(R.id.view);
     }
 

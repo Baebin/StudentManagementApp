@@ -7,10 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,12 +31,16 @@ public class LoginActivity extends AppCompatActivity {
 
     private View view;
 
+    private TextView tv_login;
+
     private EditText edtv_grade;
     private EditText edtv_class;
     private EditText edtv_number;
     private EditText edtv_name;
 
     private Button button_next;
+
+    private int stack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +66,26 @@ public class LoginActivity extends AppCompatActivity {
 
         // activity_login.xml
         view = findViewById(R.id.view);
+
+        stack = 0;
+        tv_login = findViewById(R.id.tv_login);
+        tv_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "stack: " + (++stack));
+                if (stack == 1) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.d(TAG, "stack cleard");
+                            stack = 0;
+                        }
+                    }, 3000);
+                } else if (stack == 5) {
+                    sendAdminIntent();
+                }
+            }
+        });
 
         edtv_grade = findViewById(R.id.edtv_grade);
         edtv_class = findViewById(R.id.edtv_class);
@@ -137,9 +163,17 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void sendIntent() {
+        Log.d(TAG, "sendIntent()");
         Intent intent_main = new Intent(LoginActivity.this, MainActivity.class)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
         startActivity(intent_main);
+    }
+
+    private void sendAdminIntent() {
+        Log.d(TAG, "sendAdminIntent()");
+        Intent intent_madmin = new Intent(LoginActivity.this, LoginAdminActivity.class)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
+        startActivity(intent_madmin);
     }
 
     private void showToast(String data) {
