@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2.5"
-        android:background="#E5C0EB"
         android:orientation="vertical">
 
 
@@ -23,7 +22,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="25dp"
-            android:background="#E6B1EF"
             android:maxLength="5"
             android:paddingLeft="10dp"
             android:text="Login"
@@ -31,6 +29,8 @@
             android:textColor="#9C27B0"
             android:textColorHighlight="#D29E9E"
             android:textColorHint="#FFFFFF"
+
+
             android:textSize="93sp"
             android:textStyle="bold|italic" />
 
@@ -41,8 +41,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.9"
-        android:background="#B3EFF7"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:paddingRight="30dp">
 
@@ -84,8 +83,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.9"
-        android:background="#BAF4BD"
+        android:layout_weight="1"
         android:paddingRight="30dp">
 
         <LinearLayout
@@ -126,8 +124,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.9"
-        android:background="#F7E5AF"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:paddingRight="30dp">
 
@@ -168,8 +165,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.9"
-        android:background="#EFCFA0"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:paddingRight="30dp">
 
@@ -210,15 +206,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.5"
-        android:background="#EAADAD"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_next"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_margin="50dp"
-            android:background='#0000'
+            android:layout_margin="35dp"
+            android:background="#FFFFFF"
             android:text="Next"
             android:textAllCaps="true"
             android:textColor="#F90505"
@@ -229,7 +224,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:background="#EBC4C4"
+        android:layout_weight="0.4"
         android:orientation="vertical"></LinearLayout>
 </LinearLayout>
