@@ -171,9 +171,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private void sendAdminIntent() {
         Log.d(TAG, "sendAdminIntent()");
-        Intent intent_madmin = new Intent(LoginActivity.this, LoginAdminActivity.class)
+        Intent intent_admin = new Intent(LoginActivity.this, LoginAdminActivity.class)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
-        startActivity(intent_madmin);
+        startActivity(intent_admin);
     }
 
     private void showToast(String data) {
