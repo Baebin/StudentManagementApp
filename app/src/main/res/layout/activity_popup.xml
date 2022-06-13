@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="330dp"
     android:layout_height="190dp"
-    android:background="#B7D9F4"
+    android:background="#EDEDED"
     android:orientation="vertical"
     tools:context=".PopupActivity">
 
@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_weight="0.03"
-        android:background="#B7D9F4"
+        android:background="#EDEDED"
         android:orientation="vertical">
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:background="#0075e8"
+        android:background="#989898"
         android:layout_height="5px"/>
 
 
@@ -27,8 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:layout_weight="0.6"
-        android:background="#B7D9F4"
-        android:fontFamily="@font/gana"
+        android:background="#EDEDED"
+        android:fontFamily="@font/bb"
         android:text="      앱을 종료하시겠습니까?"
         android:textColor="#000000"
         android:textSize='25dp' />
@@ -40,7 +40,7 @@
         android:layout_height="2dp"
         android:layout_margin="38dp"
         android:layout_weight="1"
-        android:backgroundTint="#17BFD7"
+        android:backgroundTint="#989898"
         android:text="exit"
         android:textColor="#000000"
         android:textSize='15dp'
@@ -48,7 +48,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:background="#0075e8"
+        android:background="#989898"
         android:layout_height="5px"/>
 
 
@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:layout_weight="0.05"
-        android:background="#B7D9F4"
+        android:background="#EDEDED"
         android:orientation="vertical">
 
     </LinearLayout>
