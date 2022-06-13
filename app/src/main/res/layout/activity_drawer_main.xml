@@ -26,17 +26,12 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="#000000" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="#000000" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,11 +39,39 @@
         android:layout_weight="4"
         android:orientation="vertical">
 
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="                     학번: 30903 "
+            android:textSize='18dp'
+            android:textColor="#000000"
+            android:fontFamily="@font/hhh"
+            />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="                      이름: 박예원 "
+            android:textSize='18dp'
+            android:textColor="#000000"
+            android:fontFamily="@font/hhh"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#000000" />
+
         <TextView
             android:id="@+id/tv_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="2dp"
             android:layout_weight="1.0"
             android:gravity="center"
             android:text="list"

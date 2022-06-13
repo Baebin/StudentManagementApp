@@ -22,11 +22,11 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="103dp"
-
+        android:layout_height="wrap_content"
         android:fontFamily="@font/hhh"
-        android:text=' "이번주 급식"'
         android:textColor="#000000"
+        android:text=' "이번주 급식"'
+
         android:textSize='40dp'
         android:textStyle="bold|italic" />
 
