@@ -25,10 +25,10 @@
             android:maxLength="5"
             android:paddingLeft="10dp"
             android:text="Login"
+
             android:textAllCaps="false"
             android:textColor="#F90505"
             android:textColorHighlight="#D29E9E"
-
             android:textColorHint="#FFFFFF"
             android:textSize="93sp"
             android:textStyle="bold|italic" />
