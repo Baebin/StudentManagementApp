@@ -8,6 +8,7 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
+import com.techtown.studentmanagementapp.entity.AdminInfo;
 import com.techtown.studentmanagementapp.entity.Student;
 import com.techtown.studentmanagementapp.manager.StudentManager;
 
@@ -75,5 +76,31 @@ public class SharedPreferenceUtil {
         editor = util.edit();
         editor.remove("Student");
         editor.commit();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    static public void putAdminInfo(AdminInfo info) {
+        Log.d(TAG, "putAdminInfo()");
+        if (!checkUtil()) return;
+
+        String admin = SerializeUtil.serialize(info);
+
+        editor = util.edit();
+        editor.putString("AdminInfo", admin);
+        editor.commit();
+
+        Log.d(TAG, "admin: " + admin);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    static public AdminInfo getAdminInfo() {
+        Log.d(TAG, "getAdminInfo()");
+        if (!checkUtil()) return null;
+
+        String info = util.getString("AdminInfo", "");
+        Log.d(TAG, "info: " + info);
+
+        AdminInfo admin = (AdminInfo) SerializeUtil.deserialize(info);
+        return admin;
     }
 }
