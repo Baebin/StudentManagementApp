@@ -42,7 +42,7 @@
         android:fontFamily="@font/hhh"
         android:textSize='25dp'
         android:textColor="#F90505"
-        android:text=" 월요일"
+        android:text=" 월요일 ٩(๑`^´๑)۶"
         />
 
     <TextView
@@ -73,7 +73,7 @@
         android:fontFamily="@font/hhh"
         android:textSize='25dp'
         android:textColor="#FF9800"
-        android:text=" 화요일"  />
+        android:text=" 화요일  (  •᷄⌓•᷅  ) "  />
 
     <TextView
         android:id="@+id/textView13"
@@ -103,7 +103,7 @@
         android:fontFamily="@font/hhh"
         android:textSize='25dp'
         android:textColor="#FFC107"
-        android:text=" 수요일" />
+        android:text=" 수요일  ٩(*•̀ᴗ•́*)و " />
 
     <TextView
         android:id="@+id/textView14"
@@ -133,7 +133,7 @@
         android:fontFamily="@font/hhh"
         android:textSize='25dp'
         android:textColor="#4CAF50"
-        android:text=" 목요일" />
+        android:text=" 목요일 ๑°⌓°๑" />
 
     <TextView
         android:id="@+id/textView15"
@@ -163,7 +163,7 @@
         android:fontFamily="@font/hhh"
         android:textSize='25dp'
         android:textColor="#2196F3"
-        android:text=" 금요일"/>
+        android:text=" 금요일 ᕕ( ᐛ )ᕗ"/>
 
     <TextView
         android:id="@+id/textView16"
