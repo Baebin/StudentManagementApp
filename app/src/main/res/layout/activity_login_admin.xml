@@ -22,12 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="25dp"
-            android:drawableEnd="@drawable/ppp"
             android:maxLength="5"
             android:paddingLeft="10dp"
             android:text="Login"
             android:textAllCaps="false"
-            android:textColor="#9C27B0"
+            android:textColor="#F7B900"
             android:textColorHighlight="#D29E9E"
 
 
@@ -39,93 +38,11 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:paddingRight="30dp">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="3dp"
-            android:paddingRight="40dp"
-            android:text="Grade"
-            android:textAllCaps="true"
-            android:textColor="#2196F3"
-            android:textSize="25sp"
-            android:textStyle="bold|italic" />
-
-        <EditText
-            android:id="@+id/edtv_grade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="3dp"
-            android:ems="8"
-            android:hint="학년을 입력해주세요."
-            android:inputType="textPersonName"
-            android:maxLength="1"
-            android:text=""
-            android:textColor="#F72CBA"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingRight="30dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="3dp"
-            android:paddingRight="40dp"
-            android:text="Class"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="#4CAF50"
-            android:textSize="25sp"
-            android:textStyle="bold|italic" />
-
-        <EditText
-            android:id="@+id/edtv_class"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="3dp"
-            android:ems="8"
-            android:hint=" 반을 입력해주세요."
-            android:inputType="textPersonName"
-            android:maxLength="1"
-            android:text=""
-            android:textColor="#F72CBA"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:orientation="horizontal"
         android:paddingRight="30dp">
 
@@ -143,7 +60,7 @@
             android:paddingRight="40dp"
             android:text="Number"
             android:textAllCaps="true"
-            android:textColor="#FFC107"
+            android:textColor="#D2A41A"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
@@ -166,7 +83,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:orientation="horizontal"
         android:paddingRight="30dp">
 
@@ -184,7 +101,7 @@
             android:paddingRight="40dp"
             android:text="Name"
             android:textAllCaps="true"
-            android:textColor="#FF9800"
+            android:textColor="#967D2E"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
@@ -217,7 +134,7 @@
             android:background="#FFFFFF"
             android:text="Next"
             android:textAllCaps="true"
-            android:textColor="#F90505"
+            android:textColor="#4F4527"
             android:textSize="30dp"
             android:textStyle="bold|italic" />
     </LinearLayout>
