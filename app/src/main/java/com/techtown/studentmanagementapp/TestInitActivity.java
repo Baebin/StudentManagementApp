@@ -19,6 +19,7 @@ public class TestInitActivity extends AppCompatActivity {
     private Button button_start;
     private Button button_main;
     private Button button_login;
+    private Button button_login_admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,13 @@ public class TestInitActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendIntent("Login");
+            }
+        });
+        button_login_admin = findViewById(R.id.button_login_admin);
+        button_login_admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendIntent("AdminLogin");
             }
         });
 
@@ -93,6 +101,12 @@ public class TestInitActivity extends AppCompatActivity {
             Intent intent_login = new Intent(getApplicationContext(), LoginActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
             startActivity(intent_login);
+        }
+
+        if (activity.equalsIgnoreCase("AdminLogin")) {
+            Intent intent_login_admin = new Intent(getApplicationContext(), LoginAdminActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
+            startActivity(intent_login_admin);
         }
     }
 }

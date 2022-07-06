@@ -15,9 +15,7 @@
         android:layout_weight="2.5"
         android:orientation="vertical">
 
-
         <TextView
-
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -58,22 +56,22 @@
             android:layout_gravity="center"
             android:layout_margin="3dp"
             android:paddingRight="40dp"
-            android:text="Number"
+            android:text="ID  "
             android:textAllCaps="true"
             android:textColor="#D2A41A"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
         <EditText
-            android:id="@+id/edtv_number"
+            android:id="@+id/edtv_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:ems="8"
-            android:hint="번호을 입력해주세요."
+            android:ems="10"
+            android:hint="아이디를 입력해주세요."
             android:inputType="textPersonName"
-            android:maxLength="2"
+            android:maxLength="10"
             android:text=""
             android:textColor="#F72CBA"
             android:textSize="20sp"
@@ -99,22 +97,22 @@
             android:layout_gravity="center"
             android:layout_margin="3dp"
             android:paddingRight="40dp"
-            android:text="Name"
+            android:text="PW"
             android:textAllCaps="true"
             android:textColor="#967D2E"
             android:textSize="25sp"
             android:textStyle="bold|italic" />
 
         <EditText
-            android:id="@+id/edtv_name"
+            android:id="@+id/edtv_pw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="3dp"
-            android:ems="8"
-            android:hint="이름을 입력해주세요."
+            android:ems="10"
+            android:hint="비밀번호를 입력해주세요."
             android:inputType="textPersonName"
-            android:maxLength="4"
+            android:maxLength="10"
             android:textColor="#F72CBA"
             android:textSize="20sp"
             android:textStyle="bold|italic" />
