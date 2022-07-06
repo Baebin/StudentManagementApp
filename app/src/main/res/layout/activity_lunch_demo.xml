@@ -23,11 +23,12 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/gg"
+        android:drawableEnd="@drawable/rrr"
+        android:fontFamily="@font/hhh"
         android:text=' "이번주 급식"'
         android:textColor="#000000"
-
-        android:textSize='50dp' />
+        android:textSize='40dp'
+        android:textStyle="bold|italic" />
 
     <View
         android:layout_width="match_parent"
@@ -40,12 +41,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/hhh"
-        android:text="월요일" />
+        android:textSize='25dp'
+        android:textColor="#F90505"
+        android:text=" 월요일 ٩(๑`^´๑)۶"
+        />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hhh"
+        android:textSize='18dp'
+        android:textColor="#000000"
+        android:text="  없음" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_weight="0.2"
         android:orientation="vertical">
     </LinearLayout>
 
@@ -58,12 +71,24 @@
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:fontFamily="@font/hhh"
+        android:textSize='25dp'
+        android:textColor="#FF9800"
+        android:text=" 화요일  (  •᷄⌓•᷅  ) "  />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hhh"
+        android:textSize='18dp'
+        android:textColor="#000000"
+        android:text="  없음" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_weight="0.2"
         android:orientation="vertical">
     </LinearLayout>
 
@@ -76,12 +101,24 @@
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:fontFamily="@font/hhh"
+        android:textSize='25dp'
+        android:textColor="#FFC107"
+        android:text=" 수요일  ٩(*•̀ᴗ•́*)و " />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hhh"
+        android:textSize='18dp'
+        android:textColor="#000000"
+        android:text="  없음" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_weight="0.2"
         android:orientation="vertical">
     </LinearLayout>
 
@@ -94,12 +131,24 @@
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:fontFamily="@font/hhh"
+        android:textSize='25dp'
+        android:textColor="#4CAF50"
+        android:text=" 목요일 ๑°⌓°๑" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hhh"
+        android:textSize='18dp'
+        android:textColor="#000000"
+        android:text="  없음" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_weight="0.2"
         android:orientation="vertical">
     </LinearLayout>
 
@@ -112,12 +161,24 @@
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:fontFamily="@font/hhh"
+        android:textSize='25dp'
+        android:textColor="#2196F3"
+        android:text=" 금요일 ᕕ( ᐛ )ᕗ"/>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hhh"
+        android:textSize='18dp'
+        android:textColor="#000000"
+        android:text="  없음" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_weight="0.2"
         android:orientation="vertical">
     </LinearLayout>
 
@@ -132,7 +193,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.2"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+
+    </LinearLayout>
 
 
 </LinearLayout>
