@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private View view_drawer;
+
+    private TextView tv_name;
+    private TextView tv_number;
 
     private ImageView iv_profile;
     private Button button_lunch;
@@ -93,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        tv_name = findViewById(R.id.tv_name);
+        tv_number = findViewById(R.id.tv_number);
 
         iv_profile = findViewById(R.id.iv_profile);
         iv_profile.setImageResource(R.drawable.human);
@@ -163,6 +170,8 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.openDrawer(view_drawer);
             }
         });
+
+        initProfile();
     }
 
     private DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {
@@ -188,6 +197,36 @@ public class MainActivity extends AppCompatActivity {
             main_layout.setEnabled(false);
         }
     };
+
+    private void initProfile() {
+        Log.d(TAG, "initProfile()");
+
+        if (StudentManager.checkAdmin(student)) {
+            tv_name.setText(
+                    getString(R.string.drawer_name)
+                            + "관리자"
+                            + " "
+            );
+            tv_number.setText(
+                    getString(R.string.drawer_number)
+                            + "33333"
+                            + " "
+            );
+
+            return;
+        }
+
+        tv_name.setText(
+                getString(R.string.drawer_name)
+                        + student.getName_()
+                        + " "
+        );
+        tv_number.setText(
+                getString(R.string.drawer_number)
+                        + StudentManager.getGCN(student)
+                        + " "
+        );
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void sendIntent(String id) {

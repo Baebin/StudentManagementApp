@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,7 +19,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.techtown.studentmanagementapp.entity.AdminInfo;
+import com.techtown.studentmanagementapp.entity.Student;
 import com.techtown.studentmanagementapp.manager.FirebaseManager;
+import com.techtown.studentmanagementapp.manager.StudentManager;
 import com.techtown.studentmanagementapp.util.SharedPreferenceUtil;
 
 public class LoginAdminActivity extends AppCompatActivity {
@@ -28,6 +31,8 @@ public class LoginAdminActivity extends AppCompatActivity {
 
     private EditText edtv_id;
     private EditText edtv_pw;
+
+    private Button button_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,18 @@ public class LoginAdminActivity extends AppCompatActivity {
 
         // activity_login_admin.xml
         view = findViewById(R.id.view);
+
+        edtv_id = findViewById(R.id.edtv_id);
+        edtv_pw = findViewById(R.id.edtv_pw);
+
+        button_next = findViewById(R.id.button_next);
+
+        button_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkLogin();
+            }
+        });
     }
 
     private void checkLogin() {
@@ -68,6 +85,9 @@ public class LoginAdminActivity extends AppCompatActivity {
                         if (user_pw.equals(pw)) {
                             Log.d(TAG, "Login Completed.");
 
+                            SharedPreferenceUtil.putStudent(
+                                    StudentManager.getAdmin()
+                            );
                             SharedPreferenceUtil.putAdminInfo(
                                     new AdminInfo(id, pw)
                             );
@@ -76,6 +96,8 @@ public class LoginAdminActivity extends AppCompatActivity {
                         break;
                     }
                 }
+
+                showSnackbar("계정 정보가 올바르지 않습니다.");
             }
 
             @Override

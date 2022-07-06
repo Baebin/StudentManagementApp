@@ -165,14 +165,14 @@ public class LoginActivity extends AppCompatActivity {
     private void sendIntent() {
         Log.d(TAG, "sendIntent()");
         Intent intent_main = new Intent(LoginActivity.this, MainActivity.class)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent_main);
     }
 
     private void sendAdminIntent() {
         Log.d(TAG, "sendAdminIntent()");
         Intent intent_admin = new Intent(LoginActivity.this, LoginAdminActivity.class)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent_admin);
     }
 

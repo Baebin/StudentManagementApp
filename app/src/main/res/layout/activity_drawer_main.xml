@@ -41,23 +41,25 @@
 
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tv_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="                     학번: 30903 "
+            android:text="학번: 00000 "
             android:textSize='18dp'
             android:textColor="#000000"
             android:fontFamily="@font/hhh"
+            android:gravity="center"
             />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="                      이름: 박예원 "
+            android:text="이름: 신천고 "
             android:textSize='18dp'
             android:textColor="#000000"
             android:fontFamily="@font/hhh"
+            android:gravity="center"
             />
 
         <View
