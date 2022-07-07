@@ -15,7 +15,7 @@ public class StudentManager {
     }
 
     static public String getGCN(Student student) {
-        String gc = "" + student.getGrade_();
+        String gc = getGC(student);
         if (student.getNumber_() < 10) gc += "0";
 
         return gc + student.getNumber_();

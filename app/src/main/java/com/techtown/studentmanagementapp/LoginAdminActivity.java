@@ -93,11 +93,11 @@ public class LoginAdminActivity extends AppCompatActivity {
                             );
                             sendIntent();
                         }
-                        break;
+                        return;
                     }
                 }
 
-                showSnackbar("계정 정보가 올바르지 않습니다.");
+                showToast("계정 정보가 올바르지 않습니다.");
             }
 
             @Override

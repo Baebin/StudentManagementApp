@@ -1,6 +1,8 @@
 package com.techtown.studentmanagementapp.entity;
 
-public class AdminInfo {
+import java.io.Serializable;
+
+public class AdminInfo implements Serializable {
     private String id = "";
     private String pw = "";
 
@@ -9,19 +11,19 @@ public class AdminInfo {
         this.pw = pw;
     }
 
-    public String getId() {
+    public String getID() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setID(String id) {
         this.id = id;
     }
 
-    public String getPw() {
+    public String getPW() {
         return pw;
     }
 
-    public void setPw(String pw) {
+    public void setPW(String pw) {
         this.pw = pw;
     }
 }

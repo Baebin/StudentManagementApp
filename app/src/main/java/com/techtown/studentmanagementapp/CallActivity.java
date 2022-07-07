@@ -31,6 +31,8 @@ import java.util.Map;
 public class CallActivity extends AppCompatActivity {
     public static String TAG = "CallActivity";
 
+    private boolean admin = false;
+
     private int grade;
 
     private StudentsAdapter studentsAdapter;
@@ -62,6 +64,10 @@ public class CallActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         studentView.setLayoutManager(linearLayoutManager);
 
+        if (StudentManager.checkAdmin(MainActivity.student)) {
+            admin = true;
+        }
+
         click = true;
         setAdapter();
         FirebaseManager.ref_classes.addValueEventListener(listener = new ValueEventListener() {
@@ -84,6 +90,8 @@ public class CallActivity extends AppCompatActivity {
             @Override
             public void onItemClickListener(StudentsAdapter.ViewHolder holder, View view, int position) {
                 Log.d(TAG, "studentsAdapter.onItemClickListener() : " + position);
+
+                if (!admin) return;
 
                 if (!click) {
                     showSnackbar("잠시 후 다시 시도해주세요.");

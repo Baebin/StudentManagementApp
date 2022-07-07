@@ -16,11 +16,17 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.techtown.studentmanagementapp.entity.AdminInfo;
 import com.techtown.studentmanagementapp.entity.Student;
 import com.techtown.studentmanagementapp.manager.FirebaseManager;
 import com.techtown.studentmanagementapp.manager.StudentManager;
@@ -31,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     static public String TAG = "MainActivity";
 
     public static Student student = null;
+    public static AdminInfo admin = null;
 
     private FirebaseDatabase fdb;
 
@@ -64,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferenceUtil.init(this);
         student = SharedPreferenceUtil.getStudent();
         Log.d(TAG, "Student Updated");
+
+        admin = SharedPreferenceUtil.getAdminInfo();
+        Log.d(TAG, "AdminInfo Updated");
 
         if (!SharedPreferenceUtil.checkStudent() || StudentManager.checkError(student)) {
             Log.d(TAG, "checkError(): True");
@@ -213,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
                             + " "
             );
 
+            checkAdmin();
             return;
         }
 
@@ -281,6 +292,45 @@ public class MainActivity extends AppCompatActivity {
         if (intent != null) startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
 
+    private void checkAdmin() {
+        Log.d(TAG, "checkAdmin()");
+
+        String id = admin.getID();
+        String pw = admin.getPW();
+
+        Log.d(TAG, "id: " + id
+                    + ", pw: " + pw);
+
+        FirebaseManager.ref_users.addListenerForSingleValueEvent(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String user_id = dataSnapshot.getKey();
+                    Log.d(TAG, "user_id: " + user_id);
+                    if (user_id.equals(id)) {
+                        String user_pw = dataSnapshot.getValue().toString();
+                        Log.d(TAG, "user_pw: " + user_pw);
+                        if (user_pw.equals(pw)) {
+                            Log.d(TAG, "Admin: true");
+                        }
+                        return;
+                    }
+                }
+
+                Log.d(TAG, "Admin: false");
+                showToast("관리자 계정이 변경되었습니다.\n다시 로그인해주세요.");
+                sendIntent("start");
+                finish();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d(TAG, "The read failed: " + error.getCode());
+            }
+        });
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void logout() {
         Log.d(TAG, "logout()");
@@ -309,5 +359,21 @@ public class MainActivity extends AppCompatActivity {
         if (exit) this.finish();
 
         return intent;
+    }
+
+    private void showToast(String data) {
+        Log.d(TAG, "showToast(" + data + ")");
+        Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showSnackbar(String data) {
+        Log.d(TAG, "showSnackbar(" + data + ")");
+        final Snackbar snackbar = Snackbar.make(view, data, Snackbar.LENGTH_SHORT);
+        snackbar.setAction("확인", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                snackbar.dismiss();
+            }
+        }).show();
     }
 }
