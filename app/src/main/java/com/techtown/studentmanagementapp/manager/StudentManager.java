@@ -4,6 +4,8 @@ import com.techtown.studentmanagementapp.entity.Student;
 
 public class StudentManager {
     static public Student admin = new Student(0, 0, 0, "Admin");
+    static public Student developer = new Student(0, 0, 0, "Developer");
+
     static public Student guest = new Student(0, 0, 0, "Guest");
     static public Student error = new Student(0, 0, 0, "Error");
 
@@ -34,6 +36,10 @@ public class StudentManager {
         return admin;
     }
 
+    public static Student getDeveloper() {
+        return developer;
+    }
+
     public static Student getGuest() {
         return guest;
     }
@@ -43,7 +49,15 @@ public class StudentManager {
     }
 
     static public boolean checkAdmin(Student student) {
+        if (checkDeveloper(student)) return true;
         if (student.getClass_() == 0 && student.getName_().equals(admin.getName_())) {
+            return true;
+        }
+        return false;
+    }
+
+    static public boolean checkDeveloper(Student student) {
+        if (student.getClass_() == 0 && student.getName_().equals(developer.getName_())) {
             return true;
         }
         return false;

@@ -46,6 +46,9 @@ public class LunchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lunch);
         Log.d(TAG, "onCreate()");
 
+        // Hide Action Bar
+        getSupportActionBar().hide();
+
         // lunch_main.xml
         tv_mon = findViewById(R.id.tv_mon);
         tv_tues = findViewById(R.id.tv_tues);

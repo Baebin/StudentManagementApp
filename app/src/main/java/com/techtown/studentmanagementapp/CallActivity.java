@@ -50,6 +50,9 @@ public class CallActivity extends AppCompatActivity {
         setContentView(R.layout.activity_call);
         Log.d(TAG, "onCreate()");
 
+        // Hide Action Bar
+        getSupportActionBar().hide();
+
         // Firebase
         FirebaseManager.init(FirebaseDatabase.getInstance());
 
@@ -103,6 +106,7 @@ public class CallActivity extends AppCompatActivity {
                         StudentManager.getGC(student)
                 );
 
+                if (StartActivity.develop_mode) return;
                 click = false;
                 Log.d(TAG, "click: false");
                 new Handler().postDelayed(new Runnable() {

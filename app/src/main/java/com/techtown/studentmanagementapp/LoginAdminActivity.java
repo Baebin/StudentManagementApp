@@ -39,6 +39,10 @@ public class LoginAdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_admin);
 
+        // Hide Action Bar
+        getSupportActionBar().hide();
+
+        // SharedPreferences
         SharedPreferenceUtil.init(this);
 
         // Firebase
@@ -85,12 +89,21 @@ public class LoginAdminActivity extends AppCompatActivity {
                         if (user_pw.equals(pw)) {
                             Log.d(TAG, "Login Completed.");
 
-                            SharedPreferenceUtil.putStudent(
-                                    StudentManager.getAdmin()
-                            );
+                            if (id.equals(getString(R.string.Developer))) {
+                                SharedPreferenceUtil.putStudent(
+                                        StudentManager.getDeveloper()
+                                );
+
+                                Log.d(TAG, "Developer Logined.");
+                            } else {
+                                SharedPreferenceUtil.putStudent(
+                                        StudentManager.getAdmin()
+                                );
+                            }
                             SharedPreferenceUtil.putAdminInfo(
                                     new AdminInfo(id, pw)
                             );
+
                             sendIntent();
                         }
                         return;

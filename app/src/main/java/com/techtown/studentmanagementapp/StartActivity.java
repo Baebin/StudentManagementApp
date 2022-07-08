@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,6 +23,7 @@ import com.techtown.studentmanagementapp.util.SharedPreferenceUtil;
 
 public class StartActivity extends AppCompatActivity {
     static public String TAG = "StartActivity";
+    static public boolean develop_mode = false;
 
     private String token = "";
 
@@ -35,8 +37,13 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        SharedPreferenceUtil.init(this);
         Log.d(TAG, "onCreate()");
+
+        // Hide Action Bar
+        getSupportActionBar().hide();
+
+        // SharedPreferences
+        SharedPreferenceUtil.init(this);
 
         // Firebase
         FirebaseManager.init(FirebaseDatabase.getInstance());
@@ -76,6 +83,15 @@ public class StartActivity extends AppCompatActivity {
         // Auto Login Logic
         if (SharedPreferenceUtil.checkStudent()) {
             Log.d(TAG, "Auto Login");
+            if (!develop_mode) {
+                if (StudentManager.checkDeveloper(SharedPreferenceUtil.getStudent())) {
+                    Log.d(TAG, "Developer Logined.");
+                    showToast("개발자 계정이 활성화 되었습니다.");
+                    develop_mode = true;
+                    sendIntent("test_init");
+                    return;
+                }
+            }
             sendIntent("main");
         } else {
             Log.d(TAG, "Auto Login Failed");
@@ -111,9 +127,19 @@ public class StartActivity extends AppCompatActivity {
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
                 startActivity(intent_login_guest);
                 break;
+            case "test_init":
+                Intent test_init = new Intent(StartActivity.this, TestInitActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(test_init);
+                break;
             default:
                 break;
         }
+    }
+
+    private void showToast(String data) {
+        Log.d(TAG, "showToast(" + data + ")");
+        Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
     }
 
     private void showSnackbar(String data) {

@@ -7,4 +7,6 @@
 
     <string name="drawer_number">"학번: "</string>
     <string name="drawer_name">"이름: "</string>
+
+    <string name="Developer">Developer</string>
 </resources>

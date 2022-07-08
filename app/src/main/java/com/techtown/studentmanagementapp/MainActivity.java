@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
     public static Student student = null;
     public static AdminInfo admin = null;
 
-    private FirebaseDatabase fdb;
-
     private DrawerLayout drawerLayout;
     private View view_drawer;
 
@@ -66,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate()");
+
+        // Hide Action Bar
+        getSupportActionBar().hide();
 
         // SharedPreferences
         SharedPreferenceUtil.init(this);
@@ -212,14 +213,17 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "initProfile()");
 
         if (StudentManager.checkAdmin(student)) {
+            String name = StartActivity.develop_mode ? "개발자" : "관리자";
+            String number = StartActivity.develop_mode ? "77777" : "33333";
+
             tv_name.setText(
                     getString(R.string.drawer_name)
-                            + "관리자"
+                            + name
                             + " "
             );
             tv_number.setText(
                     getString(R.string.drawer_number)
-                            + "33333"
+                            + number
                             + " "
             );
 

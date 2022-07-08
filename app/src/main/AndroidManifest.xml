@@ -25,7 +25,7 @@
             android:name=".LunchDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".StartActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
@@ -34,10 +34,10 @@
             android:name=".LoginAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".TestInitActivity"
             android:exported="false" />
         <activity
-            android:name=".TestInitActivity"
+            android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

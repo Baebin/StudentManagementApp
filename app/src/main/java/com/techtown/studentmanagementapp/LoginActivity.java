@@ -48,6 +48,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Log.d(TAG, "onCreate()");
 
+        // Hide Action Bar
+        getSupportActionBar().hide();
+
+        // SharedPreferences
         SharedPreferenceUtil.init(this);
 
         // Firebase

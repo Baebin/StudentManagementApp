@@ -111,8 +111,8 @@
             android:layout_margin="3dp"
             android:ems="10"
             android:hint="비밀번호를 입력해주세요."
-            android:inputType="textPersonName"
-            android:maxLength="10"
+            android:inputType="textPassword"
+            android:maxLength="20"
             android:textColor="#F72CBA"
             android:textSize="20sp"
             android:textStyle="bold|italic" />
