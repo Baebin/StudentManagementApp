@@ -13,6 +13,8 @@ public class TestInitActivity extends AppCompatActivity {
 
     // Button
     private Button button_lunch;
+    private Button button_lunch_demo;
+
     private Button button_start;
     private Button button_main;
     private Button button_login;
@@ -30,6 +32,13 @@ public class TestInitActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendIntent("Lunch");
+            }
+        });
+        button_lunch_demo = findViewById(R.id.button_lunch_demo);
+        button_lunch_demo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendIntent("LunchDemo");
             }
         });
         button_start = findViewById(R.id.button_start);
@@ -77,9 +86,15 @@ public class TestInitActivity extends AppCompatActivity {
         Log.d(TAG, "sendIntent(): " + activity);
 
         if (activity.equalsIgnoreCase("Lunch")) {
-            Intent intent_lunch = new Intent(getApplicationContext(), LunchDemoActivity.class)
+            Intent intent_lunch = new Intent(getApplicationContext(), LunchActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
             startActivity(intent_lunch);
+        }
+
+        if (activity.equalsIgnoreCase("LunchDemo")) {
+            Intent intent_lunchdemo = new Intent(getApplicationContext(), LunchDemoActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
+            startActivity(intent_lunchdemo);
         }
 
         if (activity.equalsIgnoreCase("Start")) {

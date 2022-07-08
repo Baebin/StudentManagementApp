@@ -138,8 +138,8 @@ public class FirebaseManager {
 
         Log.d(TAG, "callStudents(): " + tokens);
         Log.d(TAG, "gc: " + gc
-                    + "\n" + "grade: " + grade_
-                    + "\n" + "class: " + class_);
+                + "\n" + "grade: " + grade_
+                + "\n" + "class: " + class_);
 
         new Thread(new Runnable() {
             @Override

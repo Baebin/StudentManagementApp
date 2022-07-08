@@ -81,6 +81,27 @@
             android:id="@+id/textView_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Lunch Demo"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_lunch_demo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Login screen"
             android:textStyle="bold"
             android:textSize="20sp"/>
@@ -98,7 +119,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView_5"
+            android:id="@+id/textView_6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login screen (Admin)"

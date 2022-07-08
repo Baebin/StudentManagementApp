@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LunchParsingManager {
-    static public String TAG = "LaunchParsingManager";
+    static public String TAG = "LunchParsingManager";
 
     private LunchParsingURL url_A = null;
     private LunchParsingURL url_B = null;

@@ -268,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "calendar":
                 String uri = getString(R.string.calendar)
-                        + new TimeManager().setFormat().getTime();
+                        + new TimeManager().setFormat("yyyyMM").getTime();
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse(
                         uri
                 ));

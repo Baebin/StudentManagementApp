@@ -2,7 +2,8 @@ package com.techtown.studentmanagementapp.url;
 
 import android.util.Log;
 
-import com.techtown.studentmanagementapp.entity.Food;
+import com.techtown.studentmanagementapp.manager.FoodManager;
+import com.techtown.studentmanagementapp.entity.Time;
 
 import org.json.JSONException;
 import org.json.simple.JSONArray;
@@ -19,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LunchParsingURL {
-    static public String TAG = "LaunchParsingURL";
+    static public String TAG = "LunchParsingURL";
 
     // NEIS API
     // https://open.neis.go.kr/portal/data/service/selectServicePage.do?page=1&rows=10&sortColumn=&sortDirection=&infId=OPEN17320190722180924242823&infSeq=1
@@ -133,8 +134,22 @@ public class LunchParsingURL {
         //String result = getContents();
         //Log.d(TAG, "contents loaded");
 
+        // 반복 변수 설정
+        int i = 0;
+
         // 출력값
         Map<Integer, List<String>> foodMap = new HashMap<>();
+
+        // 급식 공백 방지
+        Map<String, Integer> foodKeyMap = new HashMap<>();
+        Time time = new Time(MLSV_FROM_YMD).setCalendar();
+        Log.d(TAG, "MLSV_FROM_YMD: " + MLSV_FROM_YMD
+                        + "\nList: " + time.getDays());
+        for (String day: time.getDays()) {
+            foodMap.put(i, null);
+            foodKeyMap.put(day, i++);
+            Log.d(TAG, (i+1) + ". " + day + ": " + i);
+        }
 
         // JSON 파싱
         JSONParser jsonParser = new JSONParser();
@@ -156,15 +171,21 @@ public class LunchParsingURL {
         org.json.simple.JSONArray row_array = (JSONArray) row.get("row");
 
         // 요일별 급식
-        for (int i = 0; i < row_array.size(); i++) {
+        for (i = 0; i < row_array.size(); i++) {
             JSONObject out = (JSONObject) row_array.get(i);
             String date = (String) out.get("MLSV_YMD");
-            List<String> foods = Food.getFoods(out.get("DDISH_NM"));
+            List<String> foods = FoodManager.getFoods(out.get("DDISH_NM"));
 
-            foodMap.put(i, foods);
-            Log.d(TAG, (i+1) + ". " + date + ": " + foods);
+            if (foodKeyMap.containsKey(date)) {
+                int key = foodKeyMap.get(date);
+                foodMap.put(key, foods);
+                Log.d(TAG, (i+1) + "[" + "Key: " + key + "]. " + date + ": " + foods);
+            } else {
+                Log.d(TAG, (i+1) + "[Key: Null]. " + date + ": " + foods);
+            }
         }
 
+        Log.d(TAG, "foodMap: " + foodMap);
         return foodMap;
     }
 

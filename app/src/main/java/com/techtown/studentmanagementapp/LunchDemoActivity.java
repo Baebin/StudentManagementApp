@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 public class LunchDemoActivity extends AppCompatActivity {
-    static public String TAG = "LaunchDemoActivity";
+    static public String TAG = "LunchDemoActivity";
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -39,8 +39,7 @@ public class LunchDemoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lunch);
-
+        setContentView(R.layout.activity_lunch_demo);
 
         // Toolbar - Back Button
         //Toolbar mToolbar = findViewById(R.id.toolbar_back);
@@ -79,7 +78,7 @@ public class LunchDemoActivity extends AppCompatActivity {
         });
 
         try {
-            time = new Time(getTime());
+            time = new Time(getTime()).setCalendar();
         } catch (ParseException e) {
             e.printStackTrace();
         }

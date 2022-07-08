@@ -59,12 +59,13 @@ public class Time {
         return null;
     }
 
-    public void setCalendar() {
+    public Time setCalendar() {
         for (int i = 2; i <= 8; i++) {
             calendar.add(Calendar.DATE, i - calendar.get(Calendar.DAY_OF_WEEK));
             days.add(format.format(calendar.getTime()));
             calendar.setTime(date);
         }
+        return this;
     }
 
     // Getter & Setter

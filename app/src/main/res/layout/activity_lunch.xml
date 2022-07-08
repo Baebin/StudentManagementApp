@@ -5,70 +5,238 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LunchDemoActivity"
+    tools:context=".LunchActivity">
 
-    android:layout_margin="20dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:orientation="vertical">
+    </LinearLayout>
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_back"
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:drawableEnd="@drawable/rrr"
+        android:fontFamily="@font/hhh"
+        android:text=' "이번주 급식"'
+        android:textColor="#000000"
+        android:textSize='40dp'
+        android:textStyle="bold|italic" />
 
-    <LinearLayout
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:background="#F90505" />
+
+    <TextView
+        android:id="@+id/tv_title_mon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hhh"
+        android:textSize='25dp'
+        android:textColor="#F90505"
+        android:text="월요일 ٩(๑`^´๑)۶"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.2"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Today"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_day"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NULL"
-            android:textSize="20sp"
-            android:textStyle="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
             <TextView
-                android:id="@+id/tv_test"
+                android:id="@+id/tv_mon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:fontFamily="@font/hhh"
+                android:textSize='18dp'
+                android:textColor="#000000"
+                android:text="없음" />
 
-        </ScrollView>
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#FF9800"
+        android:layout_height="9px"/>
+
+    <TextView
+        android:id="@+id/tv_title_tues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hhh"
+        android:textSize='25dp'
+        android:textColor="#FF9800"
+        android:text="화요일  (  •᷄⌓•᷅  ) "
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
+            <TextView
+                android:id="@+id/tv_tues"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hhh"
+                android:textSize='18dp'
+                android:textColor="#000000"
+                android:text="없음" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#FFC107"
+        android:layout_height="9px"/>
+
+    <TextView
+        android:id="@+id/tv_title_wed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hhh"
+        android:textSize='25dp'
+        android:textColor="#FFC107"
+        android:text="수요일  ٩(*•̀ᴗ•́*)و "
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
+            <TextView
+                android:id="@+id/tv_wed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hhh"
+                android:textSize='18dp'
+                android:textColor="#000000"
+                android:text="없음" />
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#4CAF50"
+        android:layout_height="9px"/>
+
+    <TextView
+        android:id="@+id/tv_title_thur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hhh"
+        android:textSize='25dp'
+        android:textColor="#4CAF50"
+        android:text="목요일 ๑°⌓°๑"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
+            <TextView
+                android:id="@+id/tv_thur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hhh"
+                android:textSize='18dp'
+                android:textColor="#000000"
+                android:text="없음" />
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#2196F3"
+        android:layout_height="9px"/>
+
+    <TextView
+        android:id="@+id/tv_title_fri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hhh"
+        android:textSize='25dp'
+        android:textColor="#2196F3"
+        android:text="금요일 ᕕ( ᐛ )ᕗ"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
+            <TextView
+                android:id="@+id/tv_fri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hhh"
+                android:textSize='18dp'
+                android:textColor="#000000"
+                android:text="없음" />
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#9C27B0"
+        android:layout_height="11px"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.2"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button_test"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Init" />
     </LinearLayout>
-
 </LinearLayout>

@@ -2,7 +2,8 @@
     <string name="app_name">StudentManagementApp</string>
 
     <string name="school">https://sch.hs.kr</string>
-    <string name="calendar">https://sch.hs.kr/calendar.view?date=</string>
+    <string name="calendar">https://sch.hs.kr/calendar.calendar_list?ym=</string>
+    <string name="calendarDemo">https://sch.hs.kr/calendar.view?date=</string>
 
     <string name="drawer_number">"학번: "</string>
     <string name="drawer_name">"이름: "</string>
