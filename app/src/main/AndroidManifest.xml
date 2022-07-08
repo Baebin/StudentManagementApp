@@ -19,13 +19,13 @@
             android:name=".CallActivity"
             android:exported="false" />
         <activity
-            android:name=".LunchDemoActivity"
+            android:name=".LunchActivity"
             android:exported="false" />
         <activity
             android:name=".StartActivity"
             android:exported="false" />
         <activity
-            android:name=".LunchActivity"
+            android:name=".LunchDemoActivity"
             android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity

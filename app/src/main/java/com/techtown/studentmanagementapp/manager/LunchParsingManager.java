@@ -1,8 +1,9 @@
-package com.techtown.studentmanagementapp.url;
+package com.techtown.studentmanagementapp.manager;
 
 import android.util.Log;
 
 import com.techtown.studentmanagementapp.entity.Time;
+import com.techtown.studentmanagementapp.url.LunchParsingURL;
 
 import org.json.JSONException;
 import org.json.simple.parser.ParseException;

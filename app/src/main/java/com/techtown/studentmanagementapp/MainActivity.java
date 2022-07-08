@@ -259,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("grade", 3);
                 break;
             case "lunch":
-                intent = new Intent(MainActivity.this, LunchActivity.class);
+                intent = new Intent(MainActivity.this, LunchDemoActivity.class);
                 break;
             case "school":
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse(

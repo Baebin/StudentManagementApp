@@ -123,8 +123,6 @@ public class CallActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                CardView view;
-
                 Map<String, Boolean> classes = new HashMap<>();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     String gc_class = dataSnapshot.getKey();

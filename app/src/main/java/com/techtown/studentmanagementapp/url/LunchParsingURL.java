@@ -158,10 +158,11 @@ public class LunchParsingURL {
         // 요일별 급식
         for (int i = 0; i < row_array.size(); i++) {
             JSONObject out = (JSONObject) row_array.get(i);
+            String date = (String) out.get("MLSV_YMD");
             List<String> foods = Food.getFoods(out.get("DDISH_NM"));
 
             foodMap.put(i, foods);
-            Log.d(TAG, (i+1) + "." + foods);
+            Log.d(TAG, (i+1) + ". " + date + ": " + foods);
         }
 
         return foodMap;

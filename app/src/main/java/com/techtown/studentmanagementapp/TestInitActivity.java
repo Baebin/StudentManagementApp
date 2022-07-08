@@ -8,9 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-
 public class TestInitActivity extends AppCompatActivity {
     static public String TAG = "TestInitActivity";
 
@@ -80,7 +77,7 @@ public class TestInitActivity extends AppCompatActivity {
         Log.d(TAG, "sendIntent(): " + activity);
 
         if (activity.equalsIgnoreCase("Lunch")) {
-            Intent intent_lunch = new Intent(getApplicationContext(), LunchActivity.class)
+            Intent intent_lunch = new Intent(getApplicationContext(), LunchDemoActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);;
             startActivity(intent_lunch);
         }
