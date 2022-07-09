@@ -3,6 +3,9 @@ package com.techtown.studentmanagementapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +13,11 @@ import android.widget.Button;
 
 public class TestInitActivity extends AppCompatActivity {
     static public String TAG = "TestInitActivity";
+
+    private Uri sound;
+    private Ringtone ringtone;
+
+    private boolean isPlaying = false;
 
     // Button
     private Button button_lunch;
@@ -19,6 +27,8 @@ public class TestInitActivity extends AppCompatActivity {
     private Button button_main;
     private Button button_login;
     private Button button_login_admin;
+
+    private Button button_sound_test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +79,29 @@ public class TestInitActivity extends AppCompatActivity {
                 sendIntent("AdminLogin");
             }
         });
+        button_sound_test = findViewById(R.id.button_sound_test);
+        button_sound_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isPlaying) {
+                    isPlaying = false;
+                    ringtone.stop();
+                } else {
+                    isPlaying = true;
+                    ringtone.play();
+                }
+            }
+        });
+
+        // Sound Test
+        sound = Uri.parse(
+                "android.resource"
+                        + "://"
+                        + getApplicationContext().getPackageName()
+                        + "/"
+                        + R.raw.alarm
+        );
+        ringtone = RingtoneManager.getRingtone(getApplicationContext(), sound);
 
         // Firebase
         /*

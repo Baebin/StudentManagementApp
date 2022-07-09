@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,6 +35,7 @@ import com.techtown.studentmanagementapp.entity.Student;
 import com.techtown.studentmanagementapp.manager.FirebaseManager;
 import com.techtown.studentmanagementapp.manager.StudentManager;
 import com.techtown.studentmanagementapp.manager.TimeManager;
+import com.techtown.studentmanagementapp.service.FirebaseMessagingService;
 import com.techtown.studentmanagementapp.util.SharedPreferenceUtil;
 
 public class MainActivity extends AppCompatActivity {
@@ -361,6 +366,11 @@ public class MainActivity extends AppCompatActivity {
         boolean exit = intent.getBooleanExtra("exit", false);
         Log.d(TAG, "exit: " + exit);
         if (exit) this.finish();
+
+        if (intent.getBooleanExtra("FMService", false)) {
+            Log.d(TAG, "soundPlayer Stopped");
+            FirebaseMessagingService.soundPlayer.stop();
+        }
 
         return intent;
     }

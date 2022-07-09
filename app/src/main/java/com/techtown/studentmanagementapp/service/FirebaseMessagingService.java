@@ -8,6 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 
@@ -24,6 +27,10 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
     private static final String CHANNEL_ID = "SMA Channel";
     private static final String CHANNEL_NAME = "SMA";
 
+    public static Ringtone soundPlayer = null;
+
+    private static Uri soundUri;
+
     @Override
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
@@ -38,9 +45,11 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         String grade_ = rm.getData().get("grade");
         String class_ = rm.getData().get("class");
 
-        String message_ = grade_ + "학년 " + class_ + "반, 내려와주세요!";
+        String message_ = grade_ + "학년 " + class_ + "반, 내려와주세요!"
+                        + " (클릭시 알람 종료)";
 
         Intent intent_main = new Intent(this, MainActivity.class);
+        intent_main.putExtra("FMService", true);
         PendingIntent intent_pending = PendingIntent.getActivity(
                 this, 0, intent_main, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -53,6 +62,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
                         .setSmallIcon(R.drawable.rog)
                         .setContentTitle(title_)
                         .setContentText(message_)
+                        .setOngoing(true)
                         .setAutoCancel(true)
                         .setContentIntent(intent_pending)
                         .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
@@ -62,7 +72,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID, CHANNEL_NAME,
-                    NotificationManager.IMPORTANCE_DEFAULT);
+                    NotificationManager.IMPORTANCE_HIGH);
             channel.setDescription("급식 알리미");
             channel.enableLights(true);
             channel.enableVibration(true);
@@ -74,5 +84,17 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         }
 
         manager.notify(2022, builder.build());
+
+        // Sound
+        soundUri = Uri.parse(
+                "android.resource"
+                        + "://"
+                        + getApplicationContext().getPackageName()
+                        + "/"
+                        + R.raw.alarm
+        );
+        if (soundPlayer != null && soundPlayer.isPlaying()) soundPlayer.stop();
+        soundPlayer = RingtoneManager.getRingtone(getApplicationContext(), soundUri);
+        soundPlayer.play();
     }
 }

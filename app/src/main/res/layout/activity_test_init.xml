@@ -132,4 +132,11 @@
             android:layout_height="wrap_content"
             android:text="Button" />
     </LinearLayout>
+    <Button
+        android:id="@+id/button_sound_test"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:text="Sound Test">
+    </Button>
 </LinearLayout>
