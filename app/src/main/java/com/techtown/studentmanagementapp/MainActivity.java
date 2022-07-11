@@ -19,9 +19,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
+import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
+import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.android.exoplayer2.upstream.DataSource;
+import com.google.android.exoplayer2.upstream.DataSpec;
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.upstream.RawResourceDataSource;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -62,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
     private View view;
     private View main_layout;
+
+    private PlayerView pv_main;
+    private SimpleExoPlayer player;
 
     private Button button_1;
     private Button button_2;
@@ -158,6 +172,8 @@ public class MainActivity extends AppCompatActivity {
         view = findViewById(R.id.view);
         main_layout = findViewById(R.id.main_layout);
 
+        pv_main = findViewById(R.id.pv_main);
+
         button_1 = findViewById(R.id.button_1);
         button_2 = findViewById(R.id.button_2);
         button_3 = findViewById(R.id.button_3);
@@ -218,6 +234,34 @@ public class MainActivity extends AppCompatActivity {
             main_layout.setEnabled(false);
         }
     };
+
+    private void initVideo() throws RawResourceDataSource.RawResourceDataSourceException {
+        Log.d(TAG, "initVideo()");
+
+        player = ExoPlayerFactory.newSimpleInstance(this, new DefaultTrackSelector());
+        pv_main.setPlayer(player);
+
+        DataSource.Factory factory= new DefaultDataSourceFactory(this,"Ex89VideoAndExoPlayer");
+
+        RawResourceDataSource resource = new RawResourceDataSource(getApplicationContext());
+        resource.open(new DataSpec(RawResourceDataSource.buildRawResourceUri(R.raw.video)));
+
+        ProgressiveMediaSource source = new ProgressiveMediaSource.Factory(factory)
+            .createMediaSource(
+                resource.getUri()
+                /*
+                Uri.parse(
+                    "android.resource"
+                        + "://"
+                        + getApplicationContext().getPackageName()
+                        + "/"
+                        + R.raw.video
+                )
+                */
+            );
+        player.prepare(source);
+        //player.setPlayWhenReady(true);
+    }
 
     private void initProfile() {
         Log.d(TAG, "initProfile()");
@@ -362,6 +406,31 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseManager.removeStudent();
         SharedPreferenceUtil.removeStudent();
+    }
+
+    @Override
+    protected void onStart() {
+        Log.d(TAG, "onStart()");
+        super.onStart();
+        try {
+            initVideo();
+        } catch (RawResourceDataSource.RawResourceDataSourceException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        Log.d(TAG, "onPause()");
+        super.onPause();
+        if (player != null && player.isPlaying()) player.stop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d(TAG, "onDestroy()");
+        super.onDestroy();
+        if (player != null) player.stop();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

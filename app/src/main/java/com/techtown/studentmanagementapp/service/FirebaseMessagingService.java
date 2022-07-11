@@ -56,23 +56,23 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         Bitmap rog = BitmapFactory.decodeResource(getResources(), R.drawable.rog);
 
         NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this, "")
-                        //.setSmallIcon(R.drawable.ic_launcher_background)
-                        .setLargeIcon(rog)
-                        .setSmallIcon(R.drawable.rog)
-                        .setContentTitle(title_)
-                        .setContentText(message_)
-                        .setOngoing(true)
-                        .setAutoCancel(true)
-                        .setContentIntent(intent_pending)
-                        .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
+            new NotificationCompat.Builder(this, "")
+                //.setSmallIcon(R.drawable.ic_launcher_background)
+                .setLargeIcon(rog)
+                .setSmallIcon(R.drawable.rog)
+                .setContentTitle(title_)
+                .setContentText(message_)
+                .setOngoing(true)
+                .setAutoCancel(true)
+                .setContentIntent(intent_pending)
+                .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
 
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
-                    CHANNEL_ID, CHANNEL_NAME,
-                    NotificationManager.IMPORTANCE_HIGH);
+                CHANNEL_ID, CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_HIGH);
             channel.setDescription("급식 알리미");
             channel.enableLights(true);
             channel.enableVibration(true);
@@ -87,11 +87,11 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 
         // Sound
         soundUri = Uri.parse(
-                "android.resource"
-                        + "://"
-                        + getApplicationContext().getPackageName()
-                        + "/"
-                        + R.raw.alarm
+            "android.resource"
+                + "://"
+                + getApplicationContext().getPackageName()
+                + "/"
+                + R.raw.alarm
         );
         if (soundPlayer != null && soundPlayer.isPlaying()) soundPlayer.stop();
         soundPlayer = RingtoneManager.getRingtone(getApplicationContext(), soundUri);

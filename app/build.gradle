@@ -52,6 +52,9 @@ dependencies {
 
     // Circle ImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // Exo Player
+    implementation 'com.google.android.exoplayer:exoplayer:2.10.6'
 }
 
 // Hamcrest 우선 순위 부여
