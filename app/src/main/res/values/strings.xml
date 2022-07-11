@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StudentManagementApp</string>
+    <string name="app_name">밥묵자</string>
 
     <string name="school">https://sch.hs.kr</string>
     <string name="calendar">https://sch.hs.kr/calendar.calendar_list?ym=</string>
