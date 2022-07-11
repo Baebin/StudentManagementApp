@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.techtown.studentmanagementapp.entity.Time;
 import com.techtown.studentmanagementapp.manager.LunchParsingManager;
+import com.techtown.studentmanagementapp.url.LunchParsingURL;
 
 import org.json.JSONException;
 
@@ -27,7 +28,7 @@ import java.util.regex.Pattern;
 public class LunchActivity extends AppCompatActivity {
     static public String TAG = "LunchActivity";
 
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     private TextView tv_mon;
     private TextView tv_tues;
@@ -36,9 +37,12 @@ public class LunchActivity extends AppCompatActivity {
     private TextView tv_fri;
 
     private Time time;
-    private LunchParsingManager manager;
+    public static LunchParsingManager manager = null;
 
     private static final Pattern PATTERN_BRACKET = Pattern.compile("\\([^\\(\\)]+\\)");
+
+    private int stack;
+    private Handler delayHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,17 +60,33 @@ public class LunchActivity extends AppCompatActivity {
         tv_thur = findViewById(R.id.tv_thur);
         tv_fri = findViewById(R.id.tv_fri);
 
-        try {
-            time = new Time(getTime()).setCalendar();
-        } catch (ParseException e) {
-            e.printStackTrace();
+        if (manager == null) {
+            try {
+                time = new Time(getTime()).setCalendar();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            manager = new LunchParsingManager(time);
+
+            delayHandler = new Handler();
+            stack = 0;
+
+            loading();
+        } else {
+            init();
         }
+    }
 
-        manager = new LunchParsingManager(time);
-
-        new Handler().postDelayed(new Runnable() {
+    private void loading() {
+        Log.d(TAG, "loading() - stack: " + ++stack);
+        delayHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                if (LunchParsingManager.isWorking) {
+                    loading();
+                    return;
+                }
                 init();
             }
         }, 1000);
@@ -110,7 +130,7 @@ public class LunchActivity extends AppCompatActivity {
         }
     }
 
-    private String getTime(){
+    public static String getTime(){
         long now = System.currentTimeMillis();
         Date date = new Date(now);
         return dateFormat.format(date);

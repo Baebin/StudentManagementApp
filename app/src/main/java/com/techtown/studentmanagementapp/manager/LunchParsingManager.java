@@ -16,6 +16,8 @@ import java.util.Map;
 public class LunchParsingManager {
     static public String TAG = "LunchParsingManager";
 
+    public static boolean isWorking = false;
+
     private LunchParsingURL url_A = null;
     private LunchParsingURL url_B = null;
 
@@ -28,6 +30,8 @@ public class LunchParsingManager {
 
     private void init() {
         Log.d(TAG, "init()");
+
+        isWorking = true;
 
         // year & day: ex, 202205
         String yd = "";
@@ -74,6 +78,8 @@ public class LunchParsingManager {
             String end_B = days_A.get(days_A.size()-1);
             url_B = new LunchParsingURL(first_B.substring(0, 5), first_B, end_B);
         }
+
+        isWorking = false;
     }
 
     public List<List<String>> getFoods() throws JSONException, ParseException, java.text.ParseException, IOException {

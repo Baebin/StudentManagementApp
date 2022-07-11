@@ -47,10 +47,11 @@
                     android:layout_gravity="center"
                     android:layout_margin="6dp"
                     android:ems="10"
-                    android:text='  " Everything is possible."'
+                    android:text='"Everything is possible."'
                     android:textColor="#9C27B0"
                     android:textSize="27sp"
-                    android:textStyle="bold|italic" />
+                    android:textStyle="bold|italic"
+                    android:gravity="center"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"

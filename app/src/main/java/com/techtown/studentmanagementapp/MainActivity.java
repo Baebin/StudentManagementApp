@@ -32,11 +32,15 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.techtown.studentmanagementapp.entity.AdminInfo;
 import com.techtown.studentmanagementapp.entity.Student;
+import com.techtown.studentmanagementapp.entity.Time;
 import com.techtown.studentmanagementapp.manager.FirebaseManager;
+import com.techtown.studentmanagementapp.manager.LunchParsingManager;
 import com.techtown.studentmanagementapp.manager.StudentManager;
 import com.techtown.studentmanagementapp.manager.TimeManager;
 import com.techtown.studentmanagementapp.service.FirebaseMessagingService;
 import com.techtown.studentmanagementapp.util.SharedPreferenceUtil;
+
+import java.text.ParseException;
 
 public class MainActivity extends AppCompatActivity {
     static public String TAG = "MainActivity";
@@ -188,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         initProfile();
+        initLunchManager();
     }
 
     private DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {
@@ -248,6 +253,17 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    private void initLunchManager() {
+        Log.d(TAG, "initLunchManager()");
+        try {
+            Log.d(TAG, "Completed");
+            Time time = new Time(LunchActivity.getTime()).setCalendar();
+            LunchActivity.manager = new LunchParsingManager(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void sendIntent(String id) {
         Log.d(TAG, "sendIntent(" + id + ")");
@@ -268,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("grade", 3);
                 break;
             case "lunch":
-                intent = new Intent(MainActivity.this, LunchDemoActivity.class);
+                intent = new Intent(MainActivity.this, LunchActivity.class);
                 break;
             case "school":
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse(
